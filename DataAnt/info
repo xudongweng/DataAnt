@@ -1,4 +1,2 @@
-2020-05-07 16:10:39 обнГ [Thread: main][ Method: com.dataant.helper.MySQLHelper.queryAll(MySQLHelper.java:150) ]
-ERROR:java.sql.SQLSyntaxErrorException: Table 'kkk.tx' doesn't exist [url:]jdbc:mysql://localhost:3306?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8,[user]:root,[password]:123456,[sql]:show columns from kkk.tx
-2020-05-07 16:10:40 обнГ [Thread: main][ Method: com.dataant.TransferData.main(TransferData.java:55) ]
-ERROR:This table tx has not fund in database.
+2020-05-08 11:52:20 ионГ [Thread: main][ Method: com.dataant.helper.MySQLHelper.queryAll(MySQLHelper.java:150) ]
+ERROR:java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.t2' at line 1 [url:]jdbc:mysql://localhost:3306?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8,[user]:root,[password]:123456,[sql]:select max(id),min(id) fromkkk.t2

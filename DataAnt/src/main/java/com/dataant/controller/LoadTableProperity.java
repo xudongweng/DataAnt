@@ -5,16 +5,16 @@
  */
 package com.dataant.controller;
 
-import com.dataant.model.DTableObj;
-import com.dataant.model.STableObj;
+import com.dataant.model.DTableObject;
+import com.dataant.model.STableObject;
 
 /**
  *
  * @author sheriff
  */
 public class LoadTableProperity {
-    private static DTableObj dtableobj=null;
-    private static STableObj stableobj=null;
+    private static DTableObject dtableobj=null;
+    private static STableObject stableobj=null;
     
     private static int threads=1;
     private static int sqlType=1;
@@ -53,17 +53,17 @@ public class LoadTableProperity {
         return pk;
     }
     
-    public static int setTable(DTableObj dobj,STableObj sobj){
+    public static int setTable(DTableObject dobj,STableObject sobj){
         if(dobj.getDDB().trim().equals("")) return -1;
         if(dobj.getDTable().trim().equals("")) return -2;
-        if(dobj.gerDCol().trim().equals("")) return -3;
+        if(dobj.gerDCols().trim().equals("")) return -3;
         if(sobj.getSDB().trim().equals("")) return -4;
         if(sobj.getSTable().trim().equals("")) return -5;
-        if(sobj.getSCol().trim().equals("")) return -6;
+        if(sobj.getSCols().trim().equals("")) return -6;
         //判断dcol与scol列的数量是否一致
-        String[] dcol=dobj.gerDCol().split(",");
-        String[] scol=sobj.getSCol().split(",");
-        if(dcol.length!=scol.length) return -7;
+        String[] dcols=dobj.gerDCols().split(",");
+        String[] scols=sobj.getSCols().split(",");
+        if(dcols.length!=scols.length) return -7;
 
         dtableobj=dobj;
         stableobj=sobj;
@@ -71,10 +71,10 @@ public class LoadTableProperity {
         return 1;
     }
     
-    public static DTableObj getDT(){
+    public static DTableObject getDT(){
         return dtableobj;
     }
-    public static STableObj getST(){
+    public static STableObject getST(){
         return stableobj;
     }
 }

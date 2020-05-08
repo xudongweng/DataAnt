@@ -9,16 +9,16 @@ package com.dataant.model;
  *
  * @author sheriff
  */
-public class MySQLObj {
+public class MySQLObject {
     private String host="localhost";
     private String user="";
     private String password="";
     private String characterEncoding="utf8";
     private String port="3306";
     
-    public MySQLObj(){}
+    public MySQLObject(){}
     
-    public MySQLObj(String host,String user,String password,String port,String characterEncoding){
+    public MySQLObject(String host,String user,String password,String port,String characterEncoding){
         this.host=host;
         this.user=user;
         this.password=password;
@@ -26,7 +26,7 @@ public class MySQLObj {
         this.characterEncoding=characterEncoding;
     }
     
-    public MySQLObj(String host,String user,String password,String port){
+    public MySQLObject(String host,String user,String password,String port){
         this.host=host;
         this.user=user;
         this.password=password;

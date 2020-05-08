@@ -9,23 +9,23 @@ package com.dataant.model;
  *
  * @author sheriff
  */
-public class STableObj {
+public class STableObject {
     private String sDB;
     private String sTable;
-    private String sCol;
+    private String sCols;
     
-    public STableObj(){}
-    public STableObj(String sDB,String sTable,String sCol){
+    public STableObject(){}
+    public STableObject(String sDB,String sTable,String sCols){
         this.sDB=sDB;
         this.sTable=sTable;
-        this.sCol=sCol;
+        this.sCols=sCols;
     }
     
     public void setSDB(String sDB){
         this.sDB=sDB;
     }
-    public void setSCol(String sCol){
-        this.sCol=sCol;
+    public void setSCols(String sCols){
+        this.sCols=sCols;
     }
     public void setSTable(String sTable){
         this.sTable=sTable;
@@ -33,8 +33,8 @@ public class STableObj {
     public String getSDB(){
         return this.sDB;
     }
-    public String getSCol(){
-        return this.sCol;
+    public String getSCols(){
+        return this.sCols;
     }
     public String getSTable(){
         return this.sTable;

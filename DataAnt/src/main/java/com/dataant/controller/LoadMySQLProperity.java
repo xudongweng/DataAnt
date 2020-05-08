@@ -5,19 +5,30 @@
  */
 package com.dataant.controller;
 
-import com.dataant.model.MySQLObj;
+import com.dataant.model.MySQLObject;
+import com.dataant.model.SQLArrObject;
 
 /**
  *
  * @author sheriff
  */
 public class LoadMySQLProperity {
-    private static MySQLObj mysqlobj=null;
+    private static MySQLObject mysqlobj=null;
+    private static SQLArrObject sqlobj=null;
     
-    public static MySQLObj getMySQLObj(){
+    
+    public static MySQLObject getMySQLObj(){
         return mysqlobj;
     }
-    public static void setMySQLObj(MySQLObj obj){
-        mysqlobj=obj;
+    public static void setMySQLObj(MySQLObject mo){
+        mysqlobj=mo;
+    }
+    
+    public static SQLArrObject getSQLArrObj(){
+        return sqlobj;
+    }
+    
+    public static void setSQLArrObj(SQLArrObject sao){
+        sqlobj=sao;
     }
 }

@@ -5,12 +5,13 @@
  */
 package com.dataant;
 
+import com.dataant.controller.ComposeSQL;
 import com.dataant.controller.LoadMySQLProperity;
 import com.dataant.controller.LoadTableProperity;
 import com.dataant.helper.MySQLHelper;
-import com.dataant.model.DTableObj;
-import com.dataant.model.MySQLObj;
-import com.dataant.model.STableObj;
+import com.dataant.model.DTableObject;
+import com.dataant.model.MySQLObject;
+import com.dataant.model.STableObject;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
@@ -30,12 +31,12 @@ public class TransferData {
             Properties prop = new Properties();
             prop.load(new FileInputStream("D:\\config.properties"));
 
-            MySQLObj mysqlobj=new MySQLObj(prop.getProperty("host"),prop.getProperty("user"),
+            MySQLObject mysqlobj=new MySQLObject(prop.getProperty("host"),prop.getProperty("user"),
                     prop.getProperty("password"),prop.getProperty("port"),prop.getProperty("characterEncoding"));
             LoadMySQLProperity.setMySQLObj(mysqlobj);
             
-            DTableObj dobj=new DTableObj(prop.getProperty("dDB"),prop.getProperty("dTable"),prop.getProperty("dCol"));
-            STableObj sobj=new STableObj(prop.getProperty("sDB"),prop.getProperty("sTable"),prop.getProperty("sCol"));
+            DTableObject dobj=new DTableObject(prop.getProperty("dDB"),prop.getProperty("dTable"),prop.getProperty("dCol"));
+            STableObject sobj=new STableObject(prop.getProperty("sDB"),prop.getProperty("sTable"),prop.getProperty("sCol"));
             switch(LoadTableProperity.setTable(dobj, sobj)){
                 case -1:log.error("dDB is empty."); return;
                 case -2:log.error("dTable is empty."); return;
@@ -57,7 +58,7 @@ public class TransferData {
             for(int i=0;i<cols.size();i++){
                 //System.out.println(cols.get(i));
                 Map<String,Object> tabledesc=(Map<String,Object>) cols.get(i);
-                System.out.println(tabledesc.get("Key"));
+                //System.out.println(tabledesc.get("Key"));
                 if(tabledesc.get("Key").equals("PRI")){
                     if(tabledesc.get("Type").toString().contains("int")){
                         LoadTableProperity.setPK(tabledesc.get("Field").toString());
@@ -73,7 +74,12 @@ public class TransferData {
                 log.error("Table "+sobj.getSTable()+" doesn't exist primary key.");
                 return;
             }
-            
+            List range=mysqlhelper.queryAll("select max("+LoadTableProperity.getPK() +") as max,min("+LoadTableProperity.getPK()+") as min from "+sobj.getSDB()+"."+sobj.getSTable());
+            if(range==null) return;
+            Map<String,Object> idrange=(Map<String,Object>) range.get(0);
+            //idrange.get("max")
+            ComposeSQL csql=new ComposeSQL(Integer.parseInt(idrange.get("max").toString()),Integer.parseInt(idrange.get("min").toString()));
+            csql.construct(1);
         }catch(IOException e){
             log.error(e.toString());
         }

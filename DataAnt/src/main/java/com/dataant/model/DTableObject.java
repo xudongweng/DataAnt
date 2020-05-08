@@ -9,23 +9,23 @@ package com.dataant.model;
  *
  * @author sheriff
  */
-public class DTableObj {
+public class DTableObject {
     private String dDB;
     private String dTable;
-    private String dCol;
+    private String dCols;
     
-    public DTableObj(){}
-    public DTableObj(String dDB,String dTable,String dCol){
+    public DTableObject(){}
+    public DTableObject(String dDB,String dTable,String dCols){
         this.dDB=dDB;
         this.dTable=dTable;
-        this.dCol=dCol;
+        this.dCols=dCols;
     }
     
     public void setDDB(String dDB){
         this.dDB=dDB;
     }
-    public void setDCol(String dCol){
-        this.dCol=dCol;
+    public void setDCols(String dCols){
+        this.dCols=dCols;
     }
     public void setDTable(String dTable){
         this.dTable=dTable;
@@ -33,8 +33,8 @@ public class DTableObj {
     public String getDDB(){
         return this.dDB;
     }
-    public String gerDCol(){
-        return this.dCol;
+    public String gerDCols(){
+        return this.dCols;
     }
     public String getDTable(){
         return this.dTable;
