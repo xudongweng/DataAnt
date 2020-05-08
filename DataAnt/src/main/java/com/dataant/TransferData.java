@@ -52,7 +52,7 @@ public class TransferData {
             
             MySQLHelper mysqlhelper=new MySQLHelper();
             mysqlhelper.setURL(mysqlobj.getHost(), mysqlobj.getPort(), mysqlobj.getUser(), mysqlobj.getPassword(),mysqlobj.getCharacterEncoding());
-            List cols=mysqlhelper.queryAll("show columns from "+sobj.getSDB()+"."+sobj.getSTable());
+            List cols=mysqlhelper.queryAll("SHOW COLUMNS FROM "+sobj.getSDB()+"."+sobj.getSTable());
             if (cols==null) return;
             
             for(int i=0;i<cols.size();i++){
@@ -74,12 +74,13 @@ public class TransferData {
                 log.error("Table "+sobj.getSTable()+" doesn't exist primary key.");
                 return;
             }
-            List range=mysqlhelper.queryAll("select max("+LoadTableProperity.getPK() +") as max,min("+LoadTableProperity.getPK()+") as min from "+sobj.getSDB()+"."+sobj.getSTable());
+            List range=mysqlhelper.queryAll("SELECT MAX("+LoadTableProperity.getPK() +") AS max,MIN("+LoadTableProperity.getPK()+") AS min FROM "+sobj.getSDB()+"."+sobj.getSTable());
             if(range==null) return;
             Map<String,Object> idrange=(Map<String,Object>) range.get(0);
             //idrange.get("max")
             ComposeSQL csql=new ComposeSQL(Integer.parseInt(idrange.get("max").toString()),Integer.parseInt(idrange.get("min").toString()));
-            csql.construct(1);
+            csql.construct(LoadTableProperity.getSqlType());
+            
         }catch(IOException e){
             log.error(e.toString());
         }

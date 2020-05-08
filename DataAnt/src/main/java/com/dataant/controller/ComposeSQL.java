@@ -7,6 +7,7 @@ package com.dataant.controller;
 
 import com.dataant.model.DTableObject;
 import com.dataant.model.STableObject;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,14 +16,11 @@ import java.util.List;
  */
 public class ComposeSQL {
     private String sqlmain="";
-    private String sqlType1="insert ignore into";
-    private String sqlType2="replace into";
     
     private int maxid=1;
     private int minid=1;
     
-    private List baseList=null;
-    private StringBuilder sbInsert=null;
+    private List<String> sqlList=new ArrayList<>();
     
     public ComposeSQL(int maxid,int minid){
         this.maxid=maxid;
@@ -31,21 +29,27 @@ public class ComposeSQL {
     
     public void construct(int type){
         if(type==1)
-            sqlmain=sqlType1;
+            sqlmain="INSERT LOW_PRIORITY IGNORE INTO";
         else
-            sqlmain=sqlType2;
+            sqlmain="REPLACE LOW_PRIORITY INTO";
+        
         DTableObject dt=LoadTableProperity.getDT();
         STableObject st=LoadTableProperity.getST();
         
         sqlmain=sqlmain.concat(" ").concat(dt.getDDB()).concat(".").concat(dt.getDTable()).concat("(").concat(dt.gerDCols()).concat(") ")
-                .concat("select ").concat(st.getSCols()).concat(" from ").concat(st.getSDB()).concat(".").concat(st.getSTable());
+                .concat("SELECT ").concat(st.getSCols()).concat(" FROM ").concat(st.getSDB()).concat(".").concat(st.getSTable());
         //System.out.println(sqlmain);
         int limit=LoadTableProperity.getPerLimit();
         StringBuilder sbSQLChanger=new StringBuilder();
         for(int i=minid;i-maxid<=0;i=i+limit){
-            sbSQLChanger.append(sqlmain).append(" where ").append(LoadTableProperity.getPK()).append(" between ").append(i).append(" and ").append(i+limit-1);
+            sbSQLChanger.append(sqlmain).append(" WHERE ").append(LoadTableProperity.getPK()).append(" BETWEEN ").append(i).append(" AND ").append(i+limit-1).append(" LOCK IN SHARE MODE");
             System.out.println(sbSQLChanger.toString());
+            sqlList.add(sbSQLChanger.toString());
             sbSQLChanger.delete(0, sbSQLChanger.length());
         }
+    }
+    
+    public List<String> getSQLList(){
+        return this.sqlList;
     }
 }
