@@ -18,6 +18,16 @@ public class LoadTableProperity {
     
     private static int threads=1;
     private static int sqlType=1;
+    private static String pk;
+    private static int perlimit=100;
+    
+    public static void setPerLimit(int perlimit){
+        LoadTableProperity.perlimit=perlimit;
+    }
+    
+    public static int getPerLimit(){
+        return perlimit;
+    }
     
     public static void setThreads(int threads){
         LoadTableProperity.threads=threads;
@@ -33,6 +43,14 @@ public class LoadTableProperity {
     
     public static int getSqlType(){
         return sqlType;
+    }
+    
+    public static void setPK(String pk){
+        LoadTableProperity.pk=pk;
+    }
+    
+    public static String getPK(){
+        return pk;
     }
     
     public static int setTable(DTableObj dobj,STableObj sobj){

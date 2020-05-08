@@ -26,6 +26,7 @@ public class MySQLHelper {
     private final String driver="com.mysql.cj.jdbc.Driver";
     private final String urlhead="jdbc:mysql://";
     private final String urltail="?serverTimezone=UTC";
+    private String unicode="useUnicode=true&characterEncoding=";
     private String url;
     private String user;
     private String password;
@@ -37,6 +38,12 @@ public class MySQLHelper {
     
     public void setURL(String server,String port,String user,String password){
         this.url=this.urlhead+server+":"+port+this.urltail;
+        this.user=user;
+        this.password=password;
+    }
+    
+    public void setURL(String server,String port,String user,String password,String characterEncoding){
+        this.url=this.urlhead+server+":"+port+this.urltail+"&"+unicode+characterEncoding;
         this.user=user;
         this.password=password;
     }

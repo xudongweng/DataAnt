@@ -13,17 +13,17 @@ public class MySQLObj {
     private String host="localhost";
     private String user="";
     private String password="";
-    private String unicode="utf8";
+    private String characterEncoding="utf8";
     private String port="3306";
     
     public MySQLObj(){}
     
-    public MySQLObj(String host,String user,String password,String port,String unicode){
+    public MySQLObj(String host,String user,String password,String port,String characterEncoding){
         this.host=host;
         this.user=user;
         this.password=password;
         this.port=port;
-        this.unicode=unicode;
+        this.characterEncoding=characterEncoding;
     }
     
     public MySQLObj(String host,String user,String password,String port){
@@ -33,12 +33,12 @@ public class MySQLObj {
         this.port=port;
     }
     
-    public void setObject(String host,String user,String password,String unicode,String port){
+    public void setObject(String host,String user,String password,String characterEncoding,String port){
         this.host=host;
         this.user=user;
         this.password=password;
         this.port=port;
-        this.unicode=unicode;
+        this.characterEncoding=characterEncoding;
     }
     
     public void setObject(String host,String user,String password,String port){
@@ -60,8 +60,8 @@ public class MySQLObj {
     public String getPort(){
         return this.port;
     }
-    public String getUnicode(){
-        return this.unicode;
+    public String getCharacterEncoding(){
+        return this.characterEncoding;
     }
     
     public void setHost(String host){
@@ -80,7 +80,7 @@ public class MySQLObj {
         this.port=port;
         
     }
-    public void setUnicode(String unicode){
-        this.unicode=unicode;
+    public void setCharacterEncoding(String characterEncoding){
+        this.characterEncoding=characterEncoding;
     }
 }
