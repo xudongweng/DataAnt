@@ -6,8 +6,8 @@
 package com.dataant;
 
 import com.dataant.controller.ComposeSQL;
-import com.dataant.controller.LoadMySQLProperity;
-import com.dataant.controller.LoadTableProperity;
+import com.dataant.model.LoadMySQLProperity;
+import com.dataant.model.LoadTableProperity;
 import com.dataant.helper.MySQLHelper;
 import com.dataant.model.DTableObject;
 import com.dataant.model.MySQLObject;

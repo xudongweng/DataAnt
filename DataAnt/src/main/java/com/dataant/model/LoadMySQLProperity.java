@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.dataant.controller;
+package com.dataant.model;
 
 import com.dataant.model.MySQLObject;
 import com.dataant.model.SQLArrObject;

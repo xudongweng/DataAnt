@@ -5,6 +5,7 @@
  */
 package com.dataant.controller;
 
+import com.dataant.model.LoadTableProperity;
 import com.dataant.model.DTableObject;
 import com.dataant.model.STableObject;
 import java.util.ArrayList;
