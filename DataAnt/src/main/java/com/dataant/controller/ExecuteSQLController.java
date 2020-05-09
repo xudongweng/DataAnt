@@ -5,10 +5,42 @@
  */
 package com.dataant.controller;
 
+import com.dataant.helper.MySQLHelper;
+import com.dataant.model.LoadMySQLProperity;
+import com.dataant.model.LoadTableProperity;
+import com.dataant.model.MySQLObject;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+import org.apache.log4j.Logger;
+
 /**
  *
  * @author sheriff
  */
 public class ExecuteSQLController {
-    
+    private Logger log=null;
+    private MySQLObject mysqlobj=null;
+    public ExecuteSQLController(){
+        this.log=Logger.getLogger(ExecuteSQLController.class);
+        mysqlobj=LoadMySQLProperity.getMySQLObj();
+    }
+    public void multipleTreadExecute(List<String> sqlList){
+        MySQLHelper mysqlhelper=new MySQLHelper();
+        mysqlhelper.setURL(mysqlobj.getHost(), mysqlobj.getPort(), mysqlobj.getUser(), mysqlobj.getPassword(),mysqlobj.getCharacterEncoding());
+        ExecutorService poolbk = Executors.newFixedThreadPool(LoadTableProperity.getThreads());
+        int i=sqlList.size();
+        int j=sqlList.size();
+        while(--i>=0){
+            InsertThread it=new InsertThread(mysqlhelper,sqlList.get(i),i,j);
+            poolbk.execute(it);
+        }
+        poolbk.shutdown();
+        try{
+            poolbk.awaitTermination(Long.MAX_VALUE, TimeUnit.DAYS);//等待线程池结束，注销将不等待
+        }catch(InterruptedException e){
+            log.error(e.toString());
+        }
+    }
 }

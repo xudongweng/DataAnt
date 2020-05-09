@@ -6,6 +6,7 @@
 package com.dataant;
 
 import com.dataant.controller.ComposeSQL;
+import com.dataant.controller.ExecuteSQLController;
 import com.dataant.model.LoadMySQLProperity;
 import com.dataant.model.LoadTableProperity;
 import com.dataant.helper.MySQLHelper;
@@ -80,7 +81,9 @@ public class TransferData {
             //idrange.get("max")
             ComposeSQL csql=new ComposeSQL(Integer.parseInt(idrange.get("max").toString()),Integer.parseInt(idrange.get("min").toString()));
             csql.construct(LoadTableProperity.getSqlType());
-            
+            List<String> sqlList=csql.getSQLList();
+            ExecuteSQLController exSQL=new ExecuteSQLController();
+            exSQL.multipleTreadExecute(sqlList);
         }catch(IOException e){
             log.error(e.toString());
         }

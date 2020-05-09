@@ -44,7 +44,7 @@ public class ComposeSQL {
         StringBuilder sbSQLChanger=new StringBuilder();
         for(int i=minid;i-maxid<=0;i=i+limit){
             sbSQLChanger.append(sqlmain).append(" WHERE ").append(LoadTableProperity.getPK()).append(" BETWEEN ").append(i).append(" AND ").append(i+limit-1).append(" LOCK IN SHARE MODE");
-            System.out.println(sbSQLChanger.toString());
+            //System.out.println(sbSQLChanger.toString());
             sqlList.add(sbSQLChanger.toString());
             sbSQLChanger.delete(0, sbSQLChanger.length());
         }

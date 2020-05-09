@@ -5,8 +5,6 @@
  */
 package com.dataant.model;
 
-import com.dataant.model.DTableObject;
-import com.dataant.model.STableObject;
 
 /**
  *

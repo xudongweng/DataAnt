@@ -5,8 +5,6 @@
  */
 package com.dataant.model;
 
-import com.dataant.model.MySQLObject;
-import com.dataant.model.SQLArrObject;
 
 /**
  *
@@ -15,8 +13,7 @@ import com.dataant.model.SQLArrObject;
 public class LoadMySQLProperity {
     private static MySQLObject mysqlobj=null;
     private static SQLArrObject sqlobj=null;
-    
-    
+
     public static MySQLObject getMySQLObj(){
         return mysqlobj;
     }
