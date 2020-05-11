@@ -58,10 +58,28 @@ public class LoadTableProperity {
         if(sobj.getSDB().trim().equals("")) return -4;
         if(sobj.getSTable().trim().equals("")) return -5;
         if(sobj.getSCols().trim().equals("")) return -6;
-        //判断dcol与scol列的数量是否一致
+        //用逗号分隔列判断dcol与scol列的数量是否一致
         String[] dcols=dobj.gerDCols().split(",");
         String[] scols=sobj.getSCols().split(",");
-        if(dcols.length!=scols.length) return -7;
+        int d=dcols.length;
+        int s=scols.length;
+        
+        
+        if(s!=d) {
+            int schars=sobj.getSCols().length();
+            int bracket=0;
+            for(int i=sobj.getSCols().indexOf("(");i<schars;i++){
+                if(sobj.getSCols().charAt(i)=='('){
+                    bracket++;
+                }else if(sobj.getSCols().charAt(i)==')'){
+                    bracket--;
+                }else if(sobj.getSCols().charAt(i)==','&&bracket>0){
+                    s--;
+                }
+            }
+            if(s!=d)
+                return -7;
+        }
 
         dtableobj=dobj;
         stableobj=sobj;
