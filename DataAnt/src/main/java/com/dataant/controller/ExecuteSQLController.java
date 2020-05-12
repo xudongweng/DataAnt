@@ -32,11 +32,8 @@ public class ExecuteSQLController {
         ExecutorService poolbk = Executors.newFixedThreadPool(LoadTableProperity.getThreads());
         LoadMySQLProperity.setMaxLine(sqlList.size());
         LoadMySQLProperity.setMinLine(sqlList.size());
-        //LoadMySQLProperity.(sqlList.size());
         int i=sqlList.size();
-        //int j=sqlList.size();
-        
-        //while(--i>=0){
+
         for(int j=0;j<i;j++){
             InsertThread it=new InsertThread(mysqlhelper,sqlList.get(j));
             poolbk.execute(it);

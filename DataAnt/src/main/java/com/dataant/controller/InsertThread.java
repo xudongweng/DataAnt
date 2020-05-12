@@ -28,11 +28,11 @@ public class InsertThread extends Thread{
     
     @Override
     public void run() {
-        log.info(" execute startup --"+this.sql);
+        log.info(" execute startup -- "+this.sql);
         mysqlhelper.execSQL(sql);
-        log.info(" execute finished --"+this.sql);
+        log.info(" execute finished -- "+this.sql);
         LoadMySQLProperity.setMinLine(LoadMySQLProperity.getMinLine()-1);
         this.execobj.setNumber(LoadMySQLProperity.getMaxLine(), LoadMySQLProperity.getMinLine());
-        log.info(" finished --"+this.execobj.execRate());
+        log.info(" finished -- "+this.execobj.execRate());
     }
 }

@@ -66,9 +66,12 @@ public class LoadTableProperity {
         
         
         if(s!=d) {
+            if(dobj.gerDCols().indexOf("(")>0 || dobj.gerDCols().indexOf(")")>0) return -7;
+
             int schars=sobj.getSCols().length();
             int bracket=0;
-            for(int i=sobj.getSCols().indexOf("(");i<schars;i++){
+            int i=sobj.getSCols().indexOf("(");
+            for(;i<schars&&i>-1;i++){
                 if(sobj.getSCols().charAt(i)=='('){
                     bracket++;
                 }else if(sobj.getSCols().charAt(i)==')'){
@@ -78,7 +81,7 @@ public class LoadTableProperity {
                 }
             }
             if(s!=d)
-                return -7;
+                return -8;
         }
 
         dtableobj=dobj;

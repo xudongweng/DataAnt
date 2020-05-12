@@ -13,6 +13,7 @@ import com.dataant.helper.MySQLHelper;
 import com.dataant.model.DTableObject;
 import com.dataant.model.MySQLObject;
 import com.dataant.model.STableObject;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
@@ -28,9 +29,14 @@ public class TransferData {
     public static void main(String[] args){
         Logger log=Logger.getLogger(TransferData.class);
         try{
+            File file = new File("config.properties");
+            if(!file.exists()){
+                log.error("File "+file.getAbsolutePath()+"config.properties is not exist.");
+                return;
+            }
             //加载配置
             Properties prop = new Properties();
-            prop.load(new FileInputStream("D:\\config.properties"));
+            prop.load(new FileInputStream("config.properties"));
 
             MySQLObject mysqlobj=new MySQLObject(prop.getProperty("host"),prop.getProperty("user"),
                     prop.getProperty("password"),prop.getProperty("port"),prop.getProperty("characterEncoding"));
@@ -45,7 +51,8 @@ public class TransferData {
                 case -4:log.error("sDB is empty."); return;
                 case -5:log.error("sTable is empty."); return;
                 case -6:log.error("sCol is empty."); return;
-                case -7:log.error("dCol is inconformity with sCol."); return;
+                case -7:log.error("dCol can't contain '(' or ')'."); return;
+                case -8:log.error("dCol is inconformity with sCol."); return;
             }
             LoadTableProperity.setSqlType(Integer.parseInt(prop.getProperty("sqlType")));
             LoadTableProperity.setThreads(Integer.parseInt(prop.getProperty("threads")));
