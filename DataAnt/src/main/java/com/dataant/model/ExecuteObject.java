@@ -12,19 +12,19 @@ import java.text.NumberFormat;
  * @author sheriff
  */
 public class ExecuteObject {
-    private int summary=0;
-    private int noexecute=0;
+    private long summary=0;
+    private long noexecute=0;
     
-    public void setNumber(int summary,int noexecute){
+    public void setNumber(long summary,long noexecute){
         this.summary=summary;
         this.noexecute=noexecute;
     }
     
-    public void setSummary(int summary){
+    public void setSummary(long summary){
         this.summary=summary;
     }
     
-    public void setNoExecute(int noexecute){
+    public void setNoExecute(long noexecute){
         this.noexecute=noexecute;
     }
     

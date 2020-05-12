@@ -43,7 +43,7 @@ public class MySQLHelper {
     }
     
     public void setURL(String server,String port,String user,String password,String characterEncoding){
-        this.url=this.urlhead+server+":"+port+this.urltail+"&"+unicode+characterEncoding;
+        this.url=this.urlhead+server+":"+port+this.urltail+"&"+this.unicode+characterEncoding;
         this.user=user;
         this.password=password;
     }

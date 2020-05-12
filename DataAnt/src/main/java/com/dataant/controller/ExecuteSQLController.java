@@ -30,10 +30,15 @@ public class ExecuteSQLController {
         MySQLHelper mysqlhelper=new MySQLHelper();
         mysqlhelper.setURL(mysqlobj.getHost(), mysqlobj.getPort(), mysqlobj.getUser(), mysqlobj.getPassword(),mysqlobj.getCharacterEncoding());
         ExecutorService poolbk = Executors.newFixedThreadPool(LoadTableProperity.getThreads());
+        LoadMySQLProperity.setMaxLine(sqlList.size());
+        LoadMySQLProperity.setMinLine(sqlList.size());
+        //LoadMySQLProperity.(sqlList.size());
         int i=sqlList.size();
-        int j=sqlList.size();
-        while(--i>=0){
-            InsertThread it=new InsertThread(mysqlhelper,sqlList.get(i),i,j);
+        //int j=sqlList.size();
+        
+        //while(--i>=0){
+        for(int j=0;j<i;j++){
+            InsertThread it=new InsertThread(mysqlhelper,sqlList.get(j));
             poolbk.execute(it);
         }
         poolbk.shutdown();

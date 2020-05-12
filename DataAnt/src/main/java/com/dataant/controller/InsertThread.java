@@ -7,7 +7,7 @@ package com.dataant.controller;
 
 import com.dataant.helper.MySQLHelper;
 import com.dataant.model.ExecuteObject;
-import java.io.IOException;
+import com.dataant.model.LoadMySQLProperity;
 import org.apache.log4j.Logger;
 
 /**
@@ -19,11 +19,11 @@ public class InsertThread extends Thread{
     private MySQLHelper mysqlhelper=null;
     private String sql;
     private ExecuteObject execobj=null;
-    public InsertThread(MySQLHelper mysqlhelper,String sql,int noexec,int summary){
+    public InsertThread(MySQLHelper mysqlhelper,String sql){
         this.sql=sql;
         this.mysqlhelper=mysqlhelper;
         this.execobj=new ExecuteObject();
-        this.execobj.setNumber(summary, noexec);
+        //this.execobj.setNumber(summary, noexec);
     }
     
     @Override
@@ -31,6 +31,8 @@ public class InsertThread extends Thread{
         log.info(" execute startup --"+this.sql);
         mysqlhelper.execSQL(sql);
         log.info(" execute finished --"+this.sql);
+        LoadMySQLProperity.setMinLine(LoadMySQLProperity.getMinLine()-1);
+        this.execobj.setNumber(LoadMySQLProperity.getMaxLine(), LoadMySQLProperity.getMinLine());
         log.info(" finished --"+this.execobj.execRate());
     }
 }
