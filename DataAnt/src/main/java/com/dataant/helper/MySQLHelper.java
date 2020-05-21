@@ -213,10 +213,10 @@ public class MySQLHelper {
             Connection conn = DriverManager.getConnection(this.url,this.user,this.password);
             if(!conn.isClosed()){
                 Statement stmt = conn.createStatement(); //创建语句对象，用以执行sql语言
-                boolean bool=stmt.execute(sql);
+                stmt.execute(sql);
                 stmt.close();
                 conn.close();
-                return bool;
+                return true;
             }
         } catch(ClassNotFoundException e) {
             log.error(e.toString()+" [url:]"+this.url+",[user]:"+this.user+",[password]:"+this.password+",[sql]:"+sql);

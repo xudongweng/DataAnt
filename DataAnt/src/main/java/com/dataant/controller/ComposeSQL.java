@@ -8,8 +8,8 @@ package com.dataant.controller;
 import com.dataant.model.LoadTableProperity;
 import com.dataant.model.DTableObject;
 import com.dataant.model.STableObject;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  *
@@ -21,7 +21,7 @@ public class ComposeSQL {
     private int maxid=1;
     private int minid=1;
     
-    private List<String> sqlList=new ArrayList<>();
+    private Queue<String> sqlQueue = new LinkedList<>();
     
     public ComposeSQL(int maxid,int minid){
         this.maxid=maxid;
@@ -45,12 +45,12 @@ public class ComposeSQL {
         for(int i=minid;i-maxid<=0;i=i+limit){
             sbSQLChanger.append(sqlmain).append(" WHERE ").append(LoadTableProperity.getPK()).append(" BETWEEN ").append(i).append(" AND ").append(i+limit-1).append(" LOCK IN SHARE MODE");
             //System.out.println(sbSQLChanger.toString());
-            sqlList.add(sbSQLChanger.toString());
+            sqlQueue.offer(sbSQLChanger.toString());
             sbSQLChanger.delete(0, sbSQLChanger.length());
         }
     }
     
-    public List<String> getSQLList(){
-        return this.sqlList;
+    public Queue<String> getSQLQueue(){
+        return this.sqlQueue;
     }
 }

@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.Queue;
 import org.apache.log4j.Logger;
 
 /**
@@ -55,7 +56,6 @@ public class TransferData {
                 case -8:log.error("dCol is inconformity with sCol."); return;
             }
             LoadTableProperity.setSqlType(Integer.parseInt(prop.getProperty("sqlType")));
-            LoadTableProperity.setThreads(Integer.parseInt(prop.getProperty("threads")));
             LoadTableProperity.setPerLimit(Integer.parseInt(prop.getProperty("limit")));
             
             MySQLHelper mysqlhelper=new MySQLHelper();
@@ -88,9 +88,9 @@ public class TransferData {
             //idrange.get("max")
             ComposeSQL csql=new ComposeSQL(Integer.parseInt(idrange.get("max").toString()),Integer.parseInt(idrange.get("min").toString()));
             csql.construct(LoadTableProperity.getSqlType());
-            List<String> sqlList=csql.getSQLList();
+            Queue<String> sqlQueue=csql.getSQLQueue();
             ExecuteSQLController exSQL=new ExecuteSQLController();
-            exSQL.multipleTreadExecute(sqlList);
+            exSQL.execute(sqlQueue);
         }catch(IOException e){
             log.error(e.toString());
         }

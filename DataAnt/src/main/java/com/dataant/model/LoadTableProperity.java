@@ -14,7 +14,6 @@ public class LoadTableProperity {
     private static DTableObject dtableobj=null;
     private static STableObject stableobj=null;
     
-    private static int threads=1;
     private static int sqlType=1;
     private static String pk;
     private static int perlimit=100;
@@ -25,14 +24,6 @@ public class LoadTableProperity {
     
     public static int getPerLimit(){
         return perlimit;
-    }
-    
-    public static void setThreads(int threads){
-        LoadTableProperity.threads=threads;
-    }
-    
-    public static int getThreads(){
-        return threads;
     }
     
     public static void setSqlType(int sqlType){

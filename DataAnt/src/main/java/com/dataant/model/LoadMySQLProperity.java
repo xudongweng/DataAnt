@@ -12,7 +12,6 @@ package com.dataant.model;
  */
 public class LoadMySQLProperity {
     private static MySQLObject mysqlobj=null;
-    private static SQLArrObject sqlobj=null;
     private static long maxLine=0;
     private static long minLine=0;
     public static MySQLObject getMySQLObj(){
@@ -20,14 +19,6 @@ public class LoadMySQLProperity {
     }
     public static void setMySQLObj(MySQLObject mo){
         mysqlobj=mo;
-    }
-    
-    public static SQLArrObject getSQLArrObj(){
-        return sqlobj;
-    }
-    
-    public static void setSQLArrObj(SQLArrObject sao){
-        sqlobj=sao;
     }
     
     public static void setMaxLine(long maxLine){
