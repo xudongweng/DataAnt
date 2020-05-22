@@ -26,7 +26,7 @@ public class MySQLHelper {
     private final String driver="com.mysql.cj.jdbc.Driver";
     private final String urlhead="jdbc:mysql://";
     private final String urltail="?serverTimezone=UTC";
-    private String unicode="useUnicode=true&characterEncoding=";
+    private final String unicode="useUnicode=true&characterEncoding=";
     private String url;
     private String user;
     private String password;

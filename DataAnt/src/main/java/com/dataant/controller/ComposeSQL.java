@@ -21,7 +21,7 @@ public class ComposeSQL {
     private int maxid=1;
     private int minid=1;
     
-    private Queue<String> sqlQueue = new LinkedList<>();
+    private final Queue<String> sqlQueue = new LinkedList<>();
     
     public ComposeSQL(int maxid,int minid){
         this.maxid=maxid;
