@@ -5,7 +5,9 @@
  */
 package com.dataant.controller;
 
+
 import com.dataant.model.LoadTableProperity;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -13,6 +15,7 @@ import com.dataant.model.LoadTableProperity;
  */
 public class TriggerSQL {
     private final StringBuilder sbTriggerSQL=new StringBuilder();
+    private Logger log=Logger.getLogger(TriggerSQL.class);
     
     public void delTrigger(){
         sbTriggerSQL.append("CREATE TRIGGER tg_").append(LoadTableProperity.getST().getSDB())
@@ -20,8 +23,9 @@ public class TriggerSQL {
                 .append(LoadTableProperity.getST().getSDB()).append(".").append(LoadTableProperity.getST().getSTable())
                 .append(" FOR EACH ROW DELETE IGNORE FROM ").append(LoadTableProperity.getDT().getDDB()).append(".").append(LoadTableProperity.getDT().getDTable())
                 .append(" WHERE ").append(LoadTableProperity.getDT().getDDB()).append(".").append(LoadTableProperity.getDT().getDTable()).append(".").append(LoadTableProperity.getPK())
-                .append(" <=> OLD.").append(LoadTableProperity.getPK());
-        System.out.println(sbTriggerSQL.toString());
+                .append(" <=> OLD.").append(LoadTableProperity.getPK()).append(";");
+        //System.out.println(sbTriggerSQL.toString());
+        log.info(sbTriggerSQL.toString());
         sbTriggerSQL.delete(0, sbTriggerSQL.length());
     }
     
@@ -30,8 +34,9 @@ public class TriggerSQL {
                 .append("_").append(LoadTableProperity.getST().getSTable()).append("_upd AFTER UPDATE ON ")
                 .append(LoadTableProperity.getST().getSDB()).append(".").append(LoadTableProperity.getST().getSTable())
                 .append(" FOR EACH ROW REPLACE INTO ").append(LoadTableProperity.getDT().getDDB()).append(".").append(LoadTableProperity.getDT().getDTable()).append("(")
-                .append(LoadTableProperity.getDT().gerDCols()).append(") VALUES (NEW.").append(LoadTableProperity.getDT().gerDCols().replace(",", ",NEW.")).append(")");
-        System.out.println(sbTriggerSQL.toString());
+                .append(LoadTableProperity.getDT().gerDCols()).append(") VALUES (NEW.").append(LoadTableProperity.getDT().gerDCols().replace(",", ",NEW.")).append(");");
+        //System.out.println(sbTriggerSQL.toString());
+        log.info(sbTriggerSQL.toString());
         sbTriggerSQL.delete(0, sbTriggerSQL.length());
     }
     
@@ -40,8 +45,9 @@ public class TriggerSQL {
                 .append("_").append(LoadTableProperity.getST().getSTable()).append("_ins AFTER INSERT ON ")
                 .append(LoadTableProperity.getST().getSDB()).append(".").append(LoadTableProperity.getST().getSTable())
                 .append(" FOR EACH ROW REPLACE INTO ").append(LoadTableProperity.getDT().getDDB()).append(".").append(LoadTableProperity.getDT().getDTable()).append("(")
-                .append(LoadTableProperity.getDT().gerDCols()).append(") VALUES (NEW.").append(LoadTableProperity.getDT().gerDCols().replace(",", ",NEW.")).append(")");
-        System.out.println(sbTriggerSQL.toString());
+                .append(LoadTableProperity.getDT().gerDCols()).append(") VALUES (NEW.").append(LoadTableProperity.getDT().gerDCols().replace(",", ",NEW.")).append(");");
+        //System.out.println(sbTriggerSQL.toString());
+        log.info(sbTriggerSQL.toString());
         sbTriggerSQL.delete(0, sbTriggerSQL.length());
     }
 }
