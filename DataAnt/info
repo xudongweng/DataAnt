@@ -1,0 +1,16 @@
+2020-07-15 14:14:20 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.delTrigger(TriggerSQL.java:28) ]
+INFO:CREATE TRIGGER tg_kkk_t2_del AFTER DELETE ON kkk.t2 FOR EACH ROW DELETE IGNORE FROM easydump.t3 WHERE easydump.t3.id <=> OLD.id;
+2020-07-15 14:14:20 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.updTrigger(TriggerSQL.java:39) ]
+INFO:CREATE TRIGGER tg_kkk_t2_upd AFTER UPDATE ON kkk.t2 FOR EACH ROW REPLACE INTO easydump.t3(id,name,money,date_time,date,date_notime,date_flag) VALUES (NEW.id,NEW.name,NEW.money,NEW.date_time,NEW.date,NEW.date_notime,NEW.date_flag);
+2020-07-15 14:14:20 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.insTrigger(TriggerSQL.java:50) ]
+INFO:CREATE TRIGGER tg_kkk_t2_ins AFTER INSERT ON kkk.t2 FOR EACH ROW REPLACE INTO easydump.t3(id,name,money,date_time,date,date_notime,date_flag) VALUES (NEW.id,NEW.name,NEW.money,NEW.date_time,NEW.date,NEW.date_notime,NEW.date_flag);
+2020-07-15 14:16:02 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.delTrigger(TriggerSQL.java:28) ]
+INFO:CREATE TRIGGER tg_kkk_t2_del AFTER DELETE ON kkk.t2 FOR EACH ROW DELETE IGNORE FROM easydump.t3 WHERE easydump.t3.id <=> OLD.id;
+2020-07-15 14:16:02 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.updTrigger(TriggerSQL.java:39) ]
+INFO:CREATE TRIGGER tg_kkk_t2_upd AFTER UPDATE ON kkk.t2 FOR EACH ROW REPLACE INTO easydump.t3(id,name,money,date_time,date,date_notime,date_flag) VALUES (NEW.id,NEW.name,NEW.money,NEW.date_time,NEW.date,NEW.date_notime,NEW.date_flag);
+2020-07-15 14:16:02 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.insTrigger(TriggerSQL.java:50) ]
+INFO:CREATE TRIGGER tg_kkk_t2_ins AFTER INSERT ON kkk.t2 FOR EACH ROW REPLACE INTO easydump.t3(id,name,money,date_time,date,date_notime,date_flag) VALUES (NEW.id,NEW.name,NEW.money,NEW.date_time,NEW.date,NEW.date_notime,NEW.date_flag);
+2020-07-15 15:42:36 下午 [Thread: main][ Method: com.dataant.helper.MySQLHelper.querySingleleCell(MySQLHelper.java:181) ]
+ERROR:java.sql.SQLException: No database selected [url:]jdbc:mysql://localhost:3306?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8,[user]:root,[password]:123456,[sql]:SHOW CREATE TABLE kkk
+2020-07-15 15:43:31 下午 [Thread: main][ Method: com.dataant.helper.MySQLHelper.querySingleleCell(MySQLHelper.java:181) ]
+ERROR:java.sql.SQLException: No database selected [url:]jdbc:mysql://localhost:3306?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8,[user]:root,[password]:123456,[sql]:SHOW CREATE TABLE kkk

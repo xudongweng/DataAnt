@@ -96,14 +96,17 @@ public class LoadConfigController {
         this.mysqlhelper=new MySQLHelper();
         this.mysqlhelper.setURL(LoadMySQLProperity.getMySQLObj().getHost(), LoadMySQLProperity.getMySQLObj().getPort(), LoadMySQLProperity.getMySQLObj().getUser()
                 , LoadMySQLProperity.getMySQLObj().getPassword(),LoadMySQLProperity.getMySQLObj().getCharacterEncoding());
-        List cols=this.mysqlhelper.queryAll("SHOW COLUMNS FROM "+LoadTableProperity.getST().getSDB()+"."+LoadTableProperity.getST().getSTable());
-        if (cols==null) return 0;
+        //List cols=this.mysqlhelper.queryAll("SHOW COLUMNS FROM "+LoadTableProperity.getST().getSDB()+"."+LoadTableProperity.getST().getSTable());
+        String valProperTable=this.mysqlhelper.querySingleleCell("SHOW CREATE TABLE "+LoadTableProperity.getST().getSDB()+"."+LoadTableProperity.getST().getSTable(), 0, 2);
+        if (valProperTable==null) return 0;
 
+        /*88888888888888888设置主键88888888888888888888*/
+        /*
         for(int i=0;i<cols.size();i++){
             //System.out.println(cols.get(i));
             Map<String,Object> tabledesc=(Map<String,Object>) cols.get(i);
             //System.out.println(tabledesc.get("Key"));
-            if(tabledesc.get("Key").equals("PRI")){
+            if(tabledesc.containsValue("PRI")){
                 if(tabledesc.get("Type").toString().contains("int")){
                     LoadTableProperity.setPK(tabledesc.get("Field").toString());
                     //System.out.println(LoadTableProperity.getPK());
@@ -113,7 +116,7 @@ public class LoadConfigController {
                     return 0;
                 }
             }
-        }
+        }*/
         if(LoadTableProperity.getPK().equals("")){
             log.error("Table "+LoadTableProperity.getST().getSTable()+" doesn't exist primary key.");
             return 0;
