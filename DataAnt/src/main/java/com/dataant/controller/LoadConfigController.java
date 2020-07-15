@@ -117,10 +117,11 @@ public class LoadConfigController {
                 }
             }
         }*/
+        /*
         if(LoadTableProperity.getPK().equals("")){
             log.error("Table "+LoadTableProperity.getST().getSTable()+" doesn't exist primary key.");
             return 0;
-        }
+        }*/
         return 1;
     }
     
