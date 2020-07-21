@@ -23,7 +23,7 @@ public class GenerateTriggerInfo {
             if(lcf.setMySQLData()==0)return;
             if(lcf.setPK()==0)return;
         
-            List<String> collist=lcf.getDBTriggerCol();
+            List<String> collist=lcf.getDBTriggerCol();//获取数据源所有列名
             TriggerSQL tgSQL=new TriggerSQL();
             tgSQL.delTrigger();
             tgSQL.updTrigger(collist);
