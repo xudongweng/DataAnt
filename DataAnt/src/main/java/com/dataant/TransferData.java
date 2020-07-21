@@ -22,12 +22,12 @@ public class TransferData {
     public static void main(String[] args){
         Logger log=Logger.getLogger(TransferData.class);
         try{
-            LoadConfigController lcf=new LoadConfigController();
-            if(lcf.loadFile()==0)return;
-            if(lcf.setMySQLData()==0)return;
-            lcf.setSQLData();
-            if(lcf.setPK()==0)return;
-            List range=lcf.setPKRange();
+            LoadConfigController lcc=new LoadConfigController();
+            if(lcc.loadFile()==0)return;
+            if(lcc.setMySQLData()==0)return;
+            lcc.setSQLData();
+            if(lcc.setPK()==0)return;
+            List range=lcc.setPKRange();
 
             if(range==null) return;
             Map<String,Object> idrange=(Map<String,Object>) range.get(0);

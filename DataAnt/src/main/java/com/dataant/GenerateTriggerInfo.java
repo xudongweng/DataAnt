@@ -18,12 +18,12 @@ public class GenerateTriggerInfo {
     public static void main(String[] args){
         Logger log=Logger.getLogger(GenerateTriggerInfo.class);
         try{
-            LoadConfigController lcf=new LoadConfigController();
-            if(lcf.loadFile()==0)return;
-            if(lcf.setMySQLData()==0)return;
-            if(lcf.setPK()==0)return;
+            LoadConfigController lcc=new LoadConfigController();
+            if(lcc.loadFile()==0)return;
+            if(lcc.setMySQLData()==0)return;
+            if(lcc.setPK()==0)return;
         
-            List<String> collist=lcf.getDBTriggerCol();//获取数据源所有列名
+            List<String> collist=lcc.getDBTriggerCol();//获取数据源所有列名
             TriggerSQL tgSQL=new TriggerSQL();
             tgSQL.delTrigger();
             tgSQL.updTrigger(collist);
