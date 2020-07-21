@@ -27,7 +27,7 @@ public class LoadTableProperity {
     }
     
     public static void setSqlType(int sqlType){
-        LoadTableProperity.sqlType=sqlType;
+        LoadTableProperity.sqlType=sqlType;//sqlType 1=insert into  2=replace into
     }
     
     public static int getSqlType(){

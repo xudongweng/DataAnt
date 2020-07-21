@@ -81,7 +81,7 @@ public class LoadConfigController {
     
     public void setSQLData(){
         try{
-            LoadTableProperity.setSqlType(Integer.parseInt(prop.getProperty("sqlType")));
+            LoadTableProperity.setSqlType(Integer.parseInt(prop.getProperty("sqlType")));//sqlType 1=insert into  2=replace into
         }catch(NumberFormatException e){
             log.error(e.toString()+ " sqlType is empty.");
         }
@@ -116,7 +116,12 @@ public class LoadConfigController {
         return 0;
     }
     
+    //TransferData
     public List setPKRange(){
         return mysqlhelper.queryAll("SELECT MAX("+LoadTableProperity.getPK() +") AS max,MIN("+LoadTableProperity.getPK()+") AS min FROM "+LoadTableProperity.getST().getSDB()+"."+LoadTableProperity.getST().getSTable());
+    }
+    
+    public List getDBTriggerCol(){
+        return mysqlhelper.queryfirstColumn("DESC "+LoadTableProperity.getST().getSDB()+"."+LoadTableProperity.getST().getSTable());
     }
 }

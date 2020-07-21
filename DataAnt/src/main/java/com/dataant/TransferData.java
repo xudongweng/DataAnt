@@ -21,21 +21,24 @@ import org.apache.log4j.Logger;
 public class TransferData {
     public static void main(String[] args){
         Logger log=Logger.getLogger(TransferData.class);
+        try{
+            LoadConfigController lcf=new LoadConfigController();
+            if(lcf.loadFile()==0)return;
+            if(lcf.setMySQLData()==0)return;
+            lcf.setSQLData();
+            if(lcf.setPK()==0)return;
+            List range=lcf.setPKRange();
 
-        LoadConfigController lcf=new LoadConfigController();
-        if(lcf.loadFile()==0)return;
-        if(lcf.setMySQLData()==0)return;
-        lcf.setSQLData();
-        if(lcf.setPK()==0)return;
-        List range=lcf.setPKRange();
-        
-        if(range==null) return;
-        Map<String,Object> idrange=(Map<String,Object>) range.get(0);
-        //idrange.get("max")
-        ComposeSQL csql=new ComposeSQL(Integer.parseInt(idrange.get("max").toString()),Integer.parseInt(idrange.get("min").toString()));
-        csql.construct(LoadTableProperity.getSqlType());
-        Queue<String> sqlQueue=csql.getSQLQueue();
-        ExecuteSQLController exSQL=new ExecuteSQLController();
-        exSQL.execute(sqlQueue);
+            if(range==null) return;
+            Map<String,Object> idrange=(Map<String,Object>) range.get(0);
+            //idrange.get("max")
+            ComposeSQL csql=new ComposeSQL(Integer.parseInt(idrange.get("max").toString()),Integer.parseInt(idrange.get("min").toString()));
+            csql.construct(LoadTableProperity.getSqlType());//sqlType 1=insert into  2=replace into
+            Queue<String> sqlQueue=csql.getSQLQueue();
+            ExecuteSQLController exSQL=new ExecuteSQLController();
+            exSQL.execute(sqlQueue);
+        }catch(NumberFormatException e){
+            log.error(e.toString());
+        }
     }
 }

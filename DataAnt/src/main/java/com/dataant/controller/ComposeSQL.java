@@ -29,7 +29,7 @@ public class ComposeSQL {
     }
     
     public void construct(int type){
-        if(type==1)
+        if(type==1)//sqlType 1=insert into  2=replace into
             sqlmain="INSERT LOW_PRIORITY IGNORE INTO";
         else
             sqlmain="REPLACE LOW_PRIORITY INTO";

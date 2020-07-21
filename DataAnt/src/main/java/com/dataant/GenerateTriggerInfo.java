@@ -7,6 +7,7 @@ package com.dataant;
 
 import com.dataant.controller.LoadConfigController;
 import com.dataant.controller.TriggerSQL;
+import java.util.List;
 import org.apache.log4j.Logger;
 
 /**
@@ -16,16 +17,19 @@ import org.apache.log4j.Logger;
 public class GenerateTriggerInfo {
     public static void main(String[] args){
         Logger log=Logger.getLogger(GenerateTriggerInfo.class);
-
-        LoadConfigController lcf=new LoadConfigController();
-        if(lcf.loadFile()==0)return;
-        if(lcf.setMySQLData()==0)return;
-        if(lcf.setPK()==0)return;
+        try{
+            LoadConfigController lcf=new LoadConfigController();
+            if(lcf.loadFile()==0)return;
+            if(lcf.setMySQLData()==0)return;
+            if(lcf.setPK()==0)return;
         
-        TriggerSQL tgSQL=new TriggerSQL();
-        tgSQL.delTrigger();
-        tgSQL.updTrigger();
-        tgSQL.insTrigger();    
-    
+            List<String> collist=lcf.getDBTriggerCol();
+            TriggerSQL tgSQL=new TriggerSQL();
+            tgSQL.delTrigger();
+            tgSQL.updTrigger(collist);
+            tgSQL.insTrigger(collist);    
+        }catch(Exception e){
+            log.error(e.toString());
+        }
     }
 }
