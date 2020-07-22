@@ -65,14 +65,14 @@ public class LoadConfigController {
             log.error(e.toString()+ " sDB or sTable or sCol is empty.");
             return 0;
         }
-        switch(LoadTableProperity.setTable(dobj, sobj)){
+        switch(LoadTableProperity.setTableObj(dobj, sobj)){
             case -1:log.error("dDB is empty."); return 0;
             case -2:log.error("dTable is empty."); return 0;
             case -3:log.error("dCol is empty."); return 0;
             case -4:log.error("sDB is empty."); return 0;
             case -5:log.error("sTable is empty."); return 0;
             case -6:log.error("sCol is empty."); return 0;
-            case -7:log.error("dCol can't contain '(' or ')'."); return 0;
+            case -7:log.error("dCol can't contain '()+-*/'."); return 0;
             case -8:log.error("dCol is inconformity with sCol."); return 0;
         }
         return 1;
@@ -114,6 +114,34 @@ public class LoadConfigController {
 
         return 0;
     }
+    
+    public int setCustomedKey(){
+        if(prop.getProperty("enableCustomedKey").trim().equals("1")){
+            try{
+                LoadTableProperity.getDT().setDCustomedKey(prop.getProperty("dCustomedKey"));
+            }catch(NumberFormatException e){
+                log.error(e.toString()+ " dCustomedKey is empty.");
+                return -1;
+            }
+            try{
+                LoadTableProperity.getST().setSCustomedKey(prop.getProperty("sCustomedKey"));
+            }catch(NumberFormatException e){
+                log.error(e.toString()+ " sCustomedKey is empty.");
+                return -1;
+            }
+            
+            switch(LoadTableProperity.checkCustomedKey(LoadTableProperity.getDT(), LoadTableProperity.getST())){
+                case -1:log.error("dCustomedKey is empty."); return -1;
+                case -2:log.error("sCustomedKey is empty."); return -1;
+                case -7:log.error("dCustomedKey can't contain '()+-*/'."); return -1;
+                case -8:log.error("dCustomedKey is inconformity with sCustomedKey."); return -1;
+            }
+            
+        }else 
+            return 0;
+        return 1;
+    }
+    
     
     //TransferData
     public List setPKRange(){

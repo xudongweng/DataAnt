@@ -37,7 +37,7 @@ public class ComposeSQL {
         DTableObject dt=LoadTableProperity.getDT();
         STableObject st=LoadTableProperity.getST();
         
-        sqlmain=sqlmain.concat(" ").concat(dt.getDDB()).concat(".").concat(dt.getDTable()).concat("(").concat(dt.gerDCols()).concat(") ")
+        sqlmain=sqlmain.concat(" ").concat(dt.getDDB()).concat(".").concat(dt.getDTable()).concat("(").concat(dt.getDCols()).concat(") ")
                 .concat("SELECT ").concat(st.getSCols()).concat(" FROM ").concat(st.getSDB()).concat(".").concat(st.getSTable());
         //System.out.println(sqlmain);
         int limit=LoadTableProperity.getPerLimit();

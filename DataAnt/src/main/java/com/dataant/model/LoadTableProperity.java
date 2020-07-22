@@ -42,22 +42,24 @@ public class LoadTableProperity {
         return pk;
     }
     
-    public static int setTable(DTableObject dobj,STableObject sobj){
+    public static int setTableObj(DTableObject dobj,STableObject sobj){
         if(dobj.getDDB().trim().equals("")) return -1;
         if(dobj.getDTable().trim().equals("")) return -2;
-        if(dobj.gerDCols().trim().equals("")) return -3;
+        if(dobj.getDCols().trim().equals("")) return -3;
         if(sobj.getSDB().trim().equals("")) return -4;
         if(sobj.getSTable().trim().equals("")) return -5;
         if(sobj.getSCols().trim().equals("")) return -6;
         //用逗号分隔列判断dcol与scol列的数量是否一致
-        String[] dcols=dobj.gerDCols().split(",");
+        String[] dcols=dobj.getDCols().split(",");
         String[] scols=sobj.getSCols().split(",");
         int d=dcols.length;
         int s=scols.length;
         
         
         if(s!=d) {
-            if(dobj.gerDCols().indexOf("(")>0 || dobj.gerDCols().indexOf(")")>0) return -7;
+            if(dobj.getDCols().indexOf("(")>0 || dobj.getDCols().indexOf(")")>0||
+                    dobj.getDCols().indexOf("+")>0|| dobj.getDCols().indexOf("-")>0|| 
+                    dobj.getDCols().indexOf("*")>0|| dobj.getDCols().indexOf("/")>0) return -7;
 
             int schars=sobj.getSCols().length();
             int bracket=0;
@@ -81,6 +83,39 @@ public class LoadTableProperity {
         return 1;
     }
     
+    public static int checkCustomedKey(DTableObject dobj,STableObject sobj){
+        if(dobj.getDCustomedKey().trim().equals("")) return -1;
+        if(sobj.getSCustomedKey().trim().equals("")) return -2;
+        //用逗号分隔列判断dcol与scol列的数量是否一致
+        String[] dcusKey=dobj.getDCustomedKey().split(",");
+        String[] scusKey=sobj.getSCustomedKey().split(",");
+        
+        int d=dcusKey.length;
+        int s=scusKey.length;
+        if(s!=d) {
+            if(dobj.getDCustomedKey().indexOf("(")>0 || dobj.getDCustomedKey().indexOf(")")>0||
+                    dobj.getDCustomedKey().indexOf("+")>0|| dobj.getDCustomedKey().indexOf("-")>0|| 
+                    dobj.getDCustomedKey().indexOf("*")>0|| dobj.getDCustomedKey().indexOf("/")>0) return -7;
+
+            int schars=sobj.getSCustomedKey().length();
+            int bracket=0;
+            int i=sobj.getSCustomedKey().indexOf("(");
+            for(;i<schars&&i>-1;i++){
+                if(sobj.getSCustomedKey().charAt(i)=='('){
+                    bracket++;
+                }else if(sobj.getSCustomedKey().charAt(i)==')'){
+                    bracket--;
+                }else if(sobj.getSCustomedKey().charAt(i)==','&&bracket>0){
+                    s--;
+                }
+            }
+            if(s!=d)
+                return -8;
+        
+        }
+        
+        return 1;
+    }
     public static DTableObject getDT(){
         return dtableobj;
     }

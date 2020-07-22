@@ -22,12 +22,16 @@ public class GenerateTriggerInfo {
             if(lcc.loadFile()==0)return;
             if(lcc.setMySQLData()==0)return;
             if(lcc.setPK()==0)return;
-        
+            
             List<String> collist=lcc.getDBTriggerCol();//获取数据源所有列名
             TriggerSQL tgSQL=new TriggerSQL();
             tgSQL.delTrigger();
-            tgSQL.updTrigger(collist);
-            tgSQL.insTrigger(collist);    
+            if(lcc.setCustomedKey()==0){
+                tgSQL.updTriggerIns(collist);
+            }else
+                tgSQL.updTriggerUpd(collist);
+            tgSQL.insTrigger(collist);
+
         }catch(Exception e){
             log.error(e.toString());
         }

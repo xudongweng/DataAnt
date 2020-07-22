@@ -13,6 +13,7 @@ public class DTableObject {
     private String dDB;
     private String dTable;
     private String dCols;
+    private String dCustomedKey;
     
     public DTableObject(){}
     public DTableObject(String dDB,String dTable,String dCols){
@@ -30,13 +31,19 @@ public class DTableObject {
     public void setDTable(String dTable){
         this.dTable=dTable;
     }
+    public void setDCustomedKey(String customedKey){
+        this.dCustomedKey=customedKey;
+    }
     public String getDDB(){
         return this.dDB;
     }
-    public String gerDCols(){
+    public String getDCols(){
         return this.dCols;
     }
     public String getDTable(){
         return this.dTable;
+    }
+    public String getDCustomedKey(){
+        return this.dCustomedKey;
     }
 }

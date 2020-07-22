@@ -1,0 +1,164 @@
+2020-07-22 10:14:11 上午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.delTrigger(TriggerSQL.java:29) ]
+INFO:CREATE TRIGGER tg_kkk_t2_del AFTER DELETE ON kkk.t2 FOR EACH ROW DELETE IGNORE FROM easydump.t3 WHERE easydump.t3.id <=> OLD.id;
+2020-07-22 10:41:12 上午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.delTrigger(TriggerSQL.java:31) ]
+INFO:CREATE TRIGGER tg_kkk_t2_del AFTER DELETE ON kkk.t2 FOR EACH ROW DELETE IGNORE FROM easydump.t3 WHERE easydump.t3.id <=> OLD.id;
+2020-07-22 10:41:12 上午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.updTrigger(TriggerSQL.java:44) ]
+INFO:CREATE TRIGGER tg_kkk_t2_upd AFTER UPDATE ON kkk.t2 FOR EACH ROW REPLACE INTO easydump.t3(id,name,money,date_time,date,date_notime,date_flag) VALUES (NEW.id,concat(NEW.name,NEW.money),NEW.money,NEW.date_time,NEW.date,NEW.date_notime,NEW.date_flag);
+2020-07-22 10:41:12 上午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.insTrigger(TriggerSQL.java:134) ]
+INFO:CREATE TRIGGER tg_kkk_t2_ins AFTER INSERT ON kkk.t2 FOR EACH ROW REPLACE INTO easydump.t3(id,name,money,date_time,date,date_notime,date_flag) VALUES (NEW.id,concat(NEW.name,NEW.money),NEW.money,NEW.date_time,NEW.date,NEW.date_notime,NEW.date_flag);
+2020-07-22 10:47:23 上午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.delTrigger(TriggerSQL.java:31) ]
+INFO:CREATE TRIGGER tg_kkk_t2_del AFTER DELETE ON kkk.t2 FOR EACH ROW DELETE IGNORE FROM easydump.t3 WHERE easydump.t3.id <=> OLD.id;
+2020-07-22 10:47:23 上午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.updTrigger(TriggerSQL.java:44) ]
+INFO:CREATE TRIGGER tg_kkk_t2_upd AFTER UPDATE ON kkk.t2 FOR EACH ROW REPLACE INTO easydump.t3(id,name,money,date_time,date,date_notime,date_flag) VALUES (NEW.id,concat(NEW.name,NEW.money),NEW.money,NEW.date_time,NEW.date,NEW.date_notime,NEW.date_flag);
+2020-07-22 10:47:23 上午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.insTrigger(TriggerSQL.java:137) ]
+INFO:CREATE TRIGGER tg_kkk_t2_ins AFTER INSERT ON kkk.t2 FOR EACH ROW REPLACE INTO easydump.t3(id,name,money,date_time,date,date_notime,date_flag) VALUES (NEW.id,concat(NEW.name,NEW.money),NEW.money,NEW.date_time,NEW.date,NEW.date_notime,NEW.date_flag);
+2020-07-22 10:47:41 上午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.delTrigger(TriggerSQL.java:31) ]
+INFO:CREATE TRIGGER tg_kkk_t2_del AFTER DELETE ON kkk.t2 FOR EACH ROW DELETE IGNORE FROM easydump.t3 WHERE easydump.t3.id <=> OLD.id;
+2020-07-22 10:57:46 上午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.delTrigger(TriggerSQL.java:31) ]
+INFO:CREATE TRIGGER tg_kkk_t2_del AFTER DELETE ON kkk.t2 FOR EACH ROW DELETE IGNORE FROM easydump.t3 WHERE easydump.t3.id <=> OLD.id;
+2020-07-22 12:04:38 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.delTrigger(TriggerSQL.java:31) ]
+INFO:CREATE TRIGGER tg_kkk_t2_del AFTER DELETE ON kkk.t2 FOR EACH ROW DELETE IGNORE FROM easydump.t3 WHERE easydump.t3.id <=> OLD.id;
+2020-07-22 12:05:37 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.delTrigger(TriggerSQL.java:31) ]
+INFO:CREATE TRIGGER tg_kkk_t2_del AFTER DELETE ON kkk.t2 FOR EACH ROW DELETE IGNORE FROM easydump.t3 WHERE easydump.t3.id <=> OLD.id;
+2020-07-22 12:06:43 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.delTrigger(TriggerSQL.java:31) ]
+INFO:CREATE TRIGGER tg_kkk_t2_del AFTER DELETE ON kkk.t2 FOR EACH ROW DELETE IGNORE FROM easydump.t3 WHERE easydump.t3.id <=> OLD.id;
+2020-07-22 12:14:29 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.delTrigger(TriggerSQL.java:31) ]
+INFO:CREATE TRIGGER tg_kkk_t2_del AFTER DELETE ON kkk.t2 FOR EACH ROW DELETE IGNORE FROM easydump.t3 WHERE easydump.t3.id <=> OLD.id;
+2020-07-22 12:15:10 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.delTrigger(TriggerSQL.java:31) ]
+INFO:CREATE TRIGGER tg_kkk_t2_del AFTER DELETE ON kkk.t2 FOR EACH ROW DELETE IGNORE FROM easydump.t3 WHERE easydump.t3.id <=> OLD.id;
+2020-07-22 12:15:42 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.updTrigger1(TriggerSQL.java:92) ]
+INFO:CREATE TRIGGER tg_kkk_t2_upd AFTER UPDATE ON kkk.t2 FOR EACH ROW UPDATE easydump.t3SET 
+2020-07-22 12:42:40 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.delTrigger(TriggerSQL.java:31) ]
+INFO:CREATE TRIGGER tg_kkk_t2_del AFTER DELETE ON kkk.t2 FOR EACH ROW DELETE IGNORE FROM easydump.t3 WHERE easydump.t3.id <=> OLD.id;
+2020-07-22 12:45:39 下午 [Thread: main][ Method: com.dataant.GenerateTriggerInfo.main(GenerateTriggerInfo.java:32) ]
+ERROR:java.lang.StringIndexOutOfBoundsException: String index out of range: 147
+2020-07-22 12:49:59 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.delTrigger(TriggerSQL.java:31) ]
+INFO:CREATE TRIGGER tg_kkk_t2_del AFTER DELETE ON kkk.t2 FOR EACH ROW DELETE IGNORE FROM easydump.t3 WHERE easydump.t3.id <=> OLD.id;
+2020-07-22 12:55:07 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.updTrigger1(TriggerSQL.java:95) ]
+INFO:CREATE TRIGGER tg_kkk_t2_upd AFTER UPDATE ON kkk.t2 FOR EACH ROW UPDATE easydump.t3SET 
+2020-07-22 12:55:26 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.insTrigger(TriggerSQL.java:158) ]
+INFO:CREATE TRIGGER tg_kkk_t2_ins AFTER INSERT ON kkk.t2 FOR EACH ROW REPLACE INTO easydump.t3(id,name,money,date_time,date,date_notime,date_flag) VALUES (NEW.id,concat((NEW.name,NEW.money),(NEW.money+NEW.money),NEW.money),NEW.money,NEW.date_time,concat(NEW.date,NEW.date),NEW.date_notime,NEW.date_flag);
+2020-07-22 12:56:18 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.delTrigger(TriggerSQL.java:31) ]
+INFO:CREATE TRIGGER tg_kkk_t2_del AFTER DELETE ON kkk.t2 FOR EACH ROW DELETE IGNORE FROM easydump.t3 WHERE easydump.t3.id <=> OLD.id;
+2020-07-22 13:02:02 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.delTrigger(TriggerSQL.java:31) ]
+INFO:CREATE TRIGGER tg_kkk_t2_del AFTER DELETE ON kkk.t2 FOR EACH ROW DELETE IGNORE FROM easydump.t3 WHERE easydump.t3.id <=> OLD.id;
+2020-07-22 13:02:40 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.delTrigger(TriggerSQL.java:31) ]
+INFO:CREATE TRIGGER tg_kkk_t2_del AFTER DELETE ON kkk.t2 FOR EACH ROW DELETE IGNORE FROM easydump.t3 WHERE easydump.t3.id <=> OLD.id;
+2020-07-22 13:04:10 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.delTrigger(TriggerSQL.java:31) ]
+INFO:CREATE TRIGGER tg_kkk_t2_del AFTER DELETE ON kkk.t2 FOR EACH ROW DELETE IGNORE FROM easydump.t3 WHERE easydump.t3.id <=> OLD.id;
+2020-07-22 13:06:35 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.delTrigger(TriggerSQL.java:31) ]
+INFO:CREATE TRIGGER tg_kkk_t2_del AFTER DELETE ON kkk.t2 FOR EACH ROW DELETE IGNORE FROM easydump.t3 WHERE easydump.t3.id <=> OLD.id;
+2020-07-22 13:07:18 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.delTrigger(TriggerSQL.java:31) ]
+INFO:CREATE TRIGGER tg_kkk_t2_del AFTER DELETE ON kkk.t2 FOR EACH ROW DELETE IGNORE FROM easydump.t3 WHERE easydump.t3.id <=> OLD.id;
+2020-07-22 13:07:18 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.updTrigger1(TriggerSQL.java:98) ]
+INFO:CREATE TRIGGER tg_kkk_t2_upd AFTER UPDATE ON kkk.t2 FOR EACH ROW UPDATE easydump.t3SET 
+2020-07-22 13:07:18 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.insTrigger(TriggerSQL.java:161) ]
+INFO:CREATE TRIGGER tg_kkk_t2_ins AFTER INSERT ON kkk.t2 FOR EACH ROW REPLACE INTO easydump.t3(id,name,money,date_time,date,date_notime,date_flag) VALUES (NEW.id,concat((NEW.name,NEW.money),(NEW.money+NEW.money),NEW.money),NEW.money,NEW.date_time,concat(NEW.date,NEW.date),NEW.date_notime,NEW.date_flag);
+2020-07-22 13:08:01 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.delTrigger(TriggerSQL.java:31) ]
+INFO:CREATE TRIGGER tg_kkk_t2_del AFTER DELETE ON kkk.t2 FOR EACH ROW DELETE IGNORE FROM easydump.t3 WHERE easydump.t3.id <=> OLD.id;
+2020-07-22 13:09:51 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.delTrigger(TriggerSQL.java:31) ]
+INFO:CREATE TRIGGER tg_kkk_t2_del AFTER DELETE ON kkk.t2 FOR EACH ROW DELETE IGNORE FROM easydump.t3 WHERE easydump.t3.id <=> OLD.id;
+2020-07-22 13:09:51 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.updTrigger1(TriggerSQL.java:99) ]
+INFO:CREATE TRIGGER tg_kkk_t2_upd AFTER UPDATE ON kkk.t2 FOR EACH ROW UPDATE easydump.t3SET 
+2020-07-22 13:09:51 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.insTrigger(TriggerSQL.java:162) ]
+INFO:CREATE TRIGGER tg_kkk_t2_ins AFTER INSERT ON kkk.t2 FOR EACH ROW REPLACE INTO easydump.t3(id,name,money,date_time,date,date_notime,date_flag) VALUES (NEW.id,concat((NEW.name,NEW.money),(NEW.money+NEW.money),NEW.money),NEW.money,NEW.date_time,concat(NEW.date,NEW.date),NEW.date_notime,NEW.date_flag);
+2020-07-22 13:10:56 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.delTrigger(TriggerSQL.java:31) ]
+INFO:CREATE TRIGGER tg_kkk_t2_del AFTER DELETE ON kkk.t2 FOR EACH ROW DELETE IGNORE FROM easydump.t3 WHERE easydump.t3.id <=> OLD.id;
+2020-07-22 13:10:56 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.updTrigger1(TriggerSQL.java:99) ]
+INFO:CREATE TRIGGER tg_kkk_t2_upd AFTER UPDATE ON kkk.t2 FOR EACH ROW UPDATE easydump.t3 SET 
+2020-07-22 13:10:56 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.insTrigger(TriggerSQL.java:162) ]
+INFO:CREATE TRIGGER tg_kkk_t2_ins AFTER INSERT ON kkk.t2 FOR EACH ROW REPLACE INTO easydump.t3(id,name,money,date_time,date,date_notime,date_flag) VALUES (NEW.id,concat((NEW.name,NEW.money),(NEW.money+NEW.money),NEW.money),NEW.money,NEW.date_time,concat(NEW.date,NEW.date),NEW.date_notime,NEW.date_flag);
+2020-07-22 13:31:54 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.delTrigger(TriggerSQL.java:31) ]
+INFO:CREATE TRIGGER tg_kkk_t2_del AFTER DELETE ON kkk.t2 FOR EACH ROW DELETE IGNORE FROM easydump.t3 WHERE easydump.t3.id <=> OLD.id;
+2020-07-22 13:31:54 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.updTrigger1(TriggerSQL.java:106) ]
+INFO:CREATE TRIGGER tg_kkk_t2_upd AFTER UPDATE ON kkk.t2 FOR EACH ROW UPDATE easydump.t3 SET 
+2020-07-22 13:31:54 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.insTrigger(TriggerSQL.java:169) ]
+INFO:CREATE TRIGGER tg_kkk_t2_ins AFTER INSERT ON kkk.t2 FOR EACH ROW REPLACE INTO easydump.t3(id,name,money,date_time,date,date_notime,date_flag) VALUES (NEW.id,concat(NEW.name,NEW.money),NEW.money,NEW.date_time,NEW.date,NEW.date_notime,NEW.date_flag);
+2020-07-22 13:36:03 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.delTrigger(TriggerSQL.java:31) ]
+INFO:CREATE TRIGGER tg_kkk_t2_del AFTER DELETE ON kkk.t2 FOR EACH ROW DELETE IGNORE FROM easydump.t3 WHERE easydump.t3.id <=> OLD.id;
+2020-07-22 13:36:03 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.updTrigger1(TriggerSQL.java:107) ]
+INFO:CREATE TRIGGER tg_kkk_t2_upd AFTER UPDATE ON kkk.t2 FOR EACH ROW UPDATE easydump.t3 SET id=NEW.id,name=concat(NEW.name,NEW.money),money=NEW.money,date_time=NEW.date_time,date=NEW.date,date_notime=NEW.date_notime,date_flag=NEW.date_flag
+2020-07-22 13:36:03 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.insTrigger(TriggerSQL.java:170) ]
+INFO:CREATE TRIGGER tg_kkk_t2_ins AFTER INSERT ON kkk.t2 FOR EACH ROW REPLACE INTO easydump.t3(id,name,money,date_time,date,date_notime,date_flag) VALUES (NEW.id,concat(NEW.name,NEW.money),NEW.money,NEW.date_time,NEW.date,NEW.date_notime,NEW.date_flag);
+2020-07-22 13:40:56 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.delTrigger(TriggerSQL.java:31) ]
+INFO:CREATE TRIGGER tg_kkk_t2_del AFTER DELETE ON kkk.t2 FOR EACH ROW DELETE IGNORE FROM easydump.t3 WHERE easydump.t3.id <=> OLD.id;
+2020-07-22 13:40:56 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.updTriggerUpd(TriggerSQL.java:108) ]
+INFO:CREATE TRIGGER tg_kkk_t2_upd AFTER UPDATE ON kkk.t2 FOR EACH ROW UPDATE easydump.t3 SET t3.id=NEW.id,t3.name=concat(NEW.name,NEW.money),t3.money=NEW.money,t3.date_time=NEW.date_time,t3.date=NEW.date,t3.date_notime=NEW.date_notime,t3.date_flag=NEW.date_flag
+2020-07-22 13:40:56 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.insTrigger(TriggerSQL.java:171) ]
+INFO:CREATE TRIGGER tg_kkk_t2_ins AFTER INSERT ON kkk.t2 FOR EACH ROW REPLACE INTO easydump.t3(id,name,money,date_time,date,date_notime,date_flag) VALUES (NEW.id,concat(NEW.name,NEW.money),NEW.money,NEW.date_time,NEW.date,NEW.date_notime,NEW.date_flag);
+2020-07-22 13:42:11 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.delTrigger(TriggerSQL.java:31) ]
+INFO:CREATE TRIGGER tg_kkk_t2_del AFTER DELETE ON kkk.t2 FOR EACH ROW DELETE IGNORE FROM easydump.t3 WHERE easydump.t3.id <=> OLD.id;
+2020-07-22 13:42:11 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.updTriggerUpd(TriggerSQL.java:110) ]
+INFO:CREATE TRIGGER tg_kkk_t2_upd AFTER UPDATE ON kkk.t2 FOR EACH ROW UPDATE easydump.t3 SET t3.id=NEW.id,t3.name=concat(NEW.name,NEW.money),t3.money=NEW.money,t3.date_time=NEW.date_time,t3.date=NEW.date,t3.date_notime=NEW.date_notime,t3.date_flag=NEW.date_flag WHERE
+2020-07-22 13:42:11 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.insTrigger(TriggerSQL.java:173) ]
+INFO:CREATE TRIGGER tg_kkk_t2_ins AFTER INSERT ON kkk.t2 FOR EACH ROW REPLACE INTO easydump.t3(id,name,money,date_time,date,date_notime,date_flag) VALUES (NEW.id,concat(NEW.name,NEW.money),NEW.money,NEW.date_time,NEW.date,NEW.date_notime,NEW.date_flag);
+2020-07-22 13:44:30 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.delTrigger(TriggerSQL.java:31) ]
+INFO:CREATE TRIGGER tg_kkk_t2_del AFTER DELETE ON kkk.t2 FOR EACH ROW DELETE IGNORE FROM easydump.t3 WHERE easydump.t3.id <=> OLD.id;
+2020-07-22 13:44:30 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.updTriggerUpd(TriggerSQL.java:111) ]
+INFO:CREATE TRIGGER tg_kkk_t2_upd AFTER UPDATE ON kkk.t2 FOR EACH ROW UPDATE easydump.t3 SET easydump.t3.id=NEW.id,easydump.t3.name=concat(NEW.name,NEW.money),easydump.t3.money=NEW.money,easydump.t3.date_time=NEW.date_time,easydump.t3.date=NEW.date,easydump.t3.date_notime=NEW.date_notime,easydump.t3.date_flag=NEW.date_flag WHERE
+2020-07-22 13:44:30 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.insTrigger(TriggerSQL.java:174) ]
+INFO:CREATE TRIGGER tg_kkk_t2_ins AFTER INSERT ON kkk.t2 FOR EACH ROW REPLACE INTO easydump.t3(id,name,money,date_time,date,date_notime,date_flag) VALUES (NEW.id,concat(NEW.name,NEW.money),NEW.money,NEW.date_time,NEW.date,NEW.date_notime,NEW.date_flag);
+2020-07-22 15:23:13 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.delTrigger(TriggerSQL.java:31) ]
+INFO:CREATE TRIGGER tg_kkk_t2_del AFTER DELETE ON kkk.t2 FOR EACH ROW DELETE IGNORE FROM easydump.t3 WHERE easydump.t3.id <=> OLD.id;
+2020-07-22 15:23:13 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.updTriggerUpd(TriggerSQL.java:111) ]
+INFO:CREATE TRIGGER tg_kkk_t2_upd AFTER UPDATE ON kkk.t2 FOR EACH ROW UPDATE easydump.t3 SET easydump.t3.id=NEW.id,easydump.t3.name=concat(NEW.name,NEW.money),easydump.t3.money=NEW.money,easydump.t3.date_time=NEW.date_time,easydump.t3.date=NEW.date,easydump.t3.date_notime=NEW.date_notime,easydump.t3.date_flag=NEW.date_flag WHERE 
+2020-07-22 15:23:13 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.insTrigger(TriggerSQL.java:174) ]
+INFO:CREATE TRIGGER tg_kkk_t2_ins AFTER INSERT ON kkk.t2 FOR EACH ROW REPLACE INTO easydump.t3(id,name,money,date_time,date,date_notime,date_flag) VALUES (NEW.id,concat(NEW.name,NEW.money),NEW.money,NEW.date_time,NEW.date,NEW.date_notime,NEW.date_flag);
+2020-07-22 15:38:54 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.delTrigger(TriggerSQL.java:31) ]
+INFO:CREATE TRIGGER tg_kkk_t2_del AFTER DELETE ON kkk.t2 FOR EACH ROW DELETE IGNORE FROM easydump.t3 WHERE easydump.t3.id <=> OLD.id;
+2020-07-22 15:38:54 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.insTrigger(TriggerSQL.java:174) ]
+INFO:CREATE TRIGGER tg_kkk_t2_ins AFTER INSERT ON kkk.t2 FOR EACH ROW REPLACE INTO easydump.t3(id,name,money,date_time,date,date_notime,date_flag) VALUES (NEW.id,concat(NEW.name,NEW.money),NEW.money,NEW.date_time,NEW.date,NEW.date_notime,NEW.date_flag);
+2020-07-22 15:39:27 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.delTrigger(TriggerSQL.java:31) ]
+INFO:CREATE TRIGGER tg_kkk_t2_del AFTER DELETE ON kkk.t2 FOR EACH ROW DELETE IGNORE FROM easydump.t3 WHERE easydump.t3.id <=> OLD.id;
+2020-07-22 15:39:27 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.updTriggerIns(TriggerSQL.java:44) ]
+INFO:CREATE TRIGGER tg_kkk_t2_upd AFTER UPDATE ON kkk.t2 FOR EACH ROW REPLACE INTO easydump.t3(id,name,money,date_time,date,date_notime,date_flag) VALUES (NEW.id,concat(NEW.name,NEW.money),NEW.money,NEW.date_time,NEW.date,NEW.date_notime,NEW.date_flag);
+2020-07-22 15:39:27 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.insTrigger(TriggerSQL.java:174) ]
+INFO:CREATE TRIGGER tg_kkk_t2_ins AFTER INSERT ON kkk.t2 FOR EACH ROW REPLACE INTO easydump.t3(id,name,money,date_time,date,date_notime,date_flag) VALUES (NEW.id,concat(NEW.name,NEW.money),NEW.money,NEW.date_time,NEW.date,NEW.date_notime,NEW.date_flag);
+2020-07-22 15:41:12 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.delTrigger(TriggerSQL.java:31) ]
+INFO:CREATE TRIGGER tg_kkk_t2_del AFTER DELETE ON kkk.t2 FOR EACH ROW DELETE IGNORE FROM easydump.t3 WHERE easydump.t3.id <=> OLD.id;
+2020-07-22 15:41:12 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.updTriggerIns(TriggerSQL.java:44) ]
+INFO:CREATE TRIGGER tg_kkk_t2_upd AFTER UPDATE ON kkk.t2 FOR EACH ROW REPLACE INTO easydump.t3(id,name,money,date_time,date,date_notime,date_flag) VALUES (NEW.id,concat(NEW.name,NEW.money),NEW.money,NEW.date_time,NEW.date,NEW.date_notime,NEW.date_flag);
+2020-07-22 15:41:12 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.insTrigger(TriggerSQL.java:174) ]
+INFO:CREATE TRIGGER tg_kkk_t2_ins AFTER INSERT ON kkk.t2 FOR EACH ROW REPLACE INTO easydump.t3(id,name,money,date_time,date,date_notime,date_flag) VALUES (NEW.id,concat(NEW.name,NEW.money),NEW.money,NEW.date_time,NEW.date,NEW.date_notime,NEW.date_flag);
+2020-07-22 15:41:31 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.delTrigger(TriggerSQL.java:31) ]
+INFO:CREATE TRIGGER tg_kkk_t2_del AFTER DELETE ON kkk.t2 FOR EACH ROW DELETE IGNORE FROM easydump.t3 WHERE easydump.t3.id <=> OLD.id;
+2020-07-22 15:41:31 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.updTriggerUpd(TriggerSQL.java:111) ]
+INFO:CREATE TRIGGER tg_kkk_t2_upd AFTER UPDATE ON kkk.t2 FOR EACH ROW UPDATE easydump.t3 SET easydump.t3.id=NEW.id,easydump.t3.name=concat(NEW.name,NEW.money),easydump.t3.money=NEW.money,easydump.t3.date_time=NEW.date_time,easydump.t3.date=NEW.date,easydump.t3.date_notime=NEW.date_notime,easydump.t3.date_flag=NEW.date_flag WHERE 
+2020-07-22 15:41:31 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.insTrigger(TriggerSQL.java:174) ]
+INFO:CREATE TRIGGER tg_kkk_t2_ins AFTER INSERT ON kkk.t2 FOR EACH ROW REPLACE INTO easydump.t3(id,name,money,date_time,date,date_notime,date_flag) VALUES (NEW.id,concat(NEW.name,NEW.money),NEW.money,NEW.date_time,NEW.date,NEW.date_notime,NEW.date_flag);
+2020-07-22 16:31:34 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.delTrigger(TriggerSQL.java:31) ]
+INFO:CREATE TRIGGER tg_kkk_t2_del AFTER DELETE ON kkk.t2 FOR EACH ROW DELETE IGNORE FROM easydump.t3 WHERE easydump.t3.id <=> OLD.id;
+2020-07-22 16:31:34 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.updTriggerUpd(TriggerSQL.java:111) ]
+INFO:CREATE TRIGGER tg_kkk_t2_upd AFTER UPDATE ON kkk.t2 FOR EACH ROW UPDATE easydump.t3 SET easydump.t3.id=NEW.id,easydump.t3.name=concat(NEW.name,NEW.money),easydump.t3.money=NEW.money,easydump.t3.date_time=NEW.date_time,easydump.t3.date=NEW.date,easydump.t3.date_notime=NEW.date_notime,easydump.t3.date_flag=NEW.date_flag WHERE 
+2020-07-22 16:31:34 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.insTrigger(TriggerSQL.java:174) ]
+INFO:CREATE TRIGGER tg_kkk_t2_ins AFTER INSERT ON kkk.t2 FOR EACH ROW REPLACE INTO easydump.t3(id,name,money,date_time,date,date_notime,date_flag) VALUES (NEW.id,concat(NEW.name,NEW.money),NEW.money,NEW.date_time,NEW.date,NEW.date_notime,NEW.date_flag);
+2020-07-22 16:34:57 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.delTrigger(TriggerSQL.java:31) ]
+INFO:CREATE TRIGGER tg_kkk_t2_del AFTER DELETE ON kkk.t2 FOR EACH ROW DELETE IGNORE FROM easydump.t3 WHERE easydump.t3.id <=> OLD.id;
+2020-07-22 16:34:57 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.updTriggerUpd(TriggerSQL.java:111) ]
+INFO:CREATE TRIGGER tg_kkk_t2_upd AFTER UPDATE ON kkk.t2 FOR EACH ROW UPDATE easydump.t3 SET easydump.t3.id=NEW.id,easydump.t3.name=concat(NEW.name,NEW.money),easydump.t3.money=NEW.money,easydump.t3.date_time=NEW.date_time,easydump.t3.date=NEW.date,easydump.t3.date_notime=NEW.date_notime,easydump.t3.date_flag=NEW.date_flag WHERE 
+2020-07-22 16:34:57 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.insTrigger(TriggerSQL.java:175) ]
+INFO:CREATE TRIGGER tg_kkk_t2_ins AFTER INSERT ON kkk.t2 FOR EACH ROW REPLACE INTO easydump.t3(id,name,money,date_time,date,date_notime,date_flag) VALUES (NEW.id,concat(NEW.name,NEW.money),NEW.money,NEW.date_time,NEW.date,NEW.date_notime,NEW.date_flag);
+2020-07-22 17:20:24 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.delTrigger(TriggerSQL.java:31) ]
+INFO:CREATE TRIGGER tg_kkk_t2_del AFTER DELETE ON kkk.t2 FOR EACH ROW DELETE IGNORE FROM easydump.t3 WHERE easydump.t3.id <=> OLD.id;
+2020-07-22 17:20:24 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.updTriggerUpd(TriggerSQL.java:73) ]
+INFO:CREATE TRIGGER tg_kkk_t2_upd AFTER UPDATE ON kkk.t2 FOR EACH ROW UPDATE easydump.t3 SET easydump.t3.id=NEW.id,easydump.t3.name=concat(NEW.name,NEW.money),easydump.t3.money=NEW.money,easydump.t3.date_time=NEW.date_time,easydump.t3.date=NEW.date,easydump.t3.date_notime=NEW.date_notime,easydump.t3.date_flag=NEW.date_flag WHERE 
+2020-07-22 17:20:24 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.insTrigger(TriggerSQL.java:180) ]
+INFO:CREATE TRIGGER tg_kkk_t2_ins AFTER INSERT ON kkk.t2 FOR EACH ROW REPLACE INTO easydump.t3(id,name,money,date_time,date,date_notime,date_flag) VALUES (NEW.id,concat(NEW.name,NEW.money),NEW.money,NEW.date_time,NEW.date,NEW.date_notime,NEW.date_flag);
+2020-07-22 17:22:07 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.delTrigger(TriggerSQL.java:31) ]
+INFO:CREATE TRIGGER tg_kkk_t2_del AFTER DELETE ON kkk.t2 FOR EACH ROW DELETE IGNORE FROM easydump.t3 WHERE easydump.t3.id <=> OLD.id;
+2020-07-22 17:22:07 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.updTriggerUpd(TriggerSQL.java:76) ]
+INFO:CREATE TRIGGER tg_kkk_t2_upd AFTER UPDATE ON kkk.t2 FOR EACH ROW UPDATE easydump.t3 SET easydump.t3.id=NEW.id,easydump.t3.name=concat(NEW.name,NEW.money),easydump.t3.money=NEW.money,easydump.t3.date_time=NEW.date_time,easydump.t3.date=NEW.date,easydump.t3.date_notime=NEW.date_notime,easydump.t3.date_flag=NEW.date_flag WHERE 
+2020-07-22 17:22:07 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.insTrigger(TriggerSQL.java:183) ]
+INFO:CREATE TRIGGER tg_kkk_t2_ins AFTER INSERT ON kkk.t2 FOR EACH ROW REPLACE INTO easydump.t3(id,name,money,date_time,date,date_notime,date_flag) VALUES (NEW.id,concat(NEW.name,NEW.money),NEW.money,NEW.date_time,NEW.date,NEW.date_notime,NEW.date_flag);
+2020-07-22 17:22:51 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.delTrigger(TriggerSQL.java:31) ]
+INFO:CREATE TRIGGER tg_kkk_t2_del AFTER DELETE ON kkk.t2 FOR EACH ROW DELETE IGNORE FROM easydump.t3 WHERE easydump.t3.id <=> OLD.id;
+2020-07-22 17:23:08 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.updTriggerUpd(TriggerSQL.java:76) ]
+INFO:CREATE TRIGGER tg_kkk_t2_upd AFTER UPDATE ON kkk.t2 FOR EACH ROW UPDATE easydump.t3 SET easydump.t3.id=NEW.id,easydump.t3.name=concat(NEW.name,NEW.money),easydump.t3.money=NEW.money,easydump.t3.date_time=NEW.date_time,easydump.t3.date=NEW.date,easydump.t3.date_notime=NEW.date_notime,easydump.t3.date_flag=NEW.date_flag WHERE 
+2020-07-22 17:34:25 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.delTrigger(TriggerSQL.java:31) ]
+INFO:CREATE TRIGGER tg_kkk_t2_del AFTER DELETE ON kkk.t2 FOR EACH ROW DELETE IGNORE FROM easydump.t3 WHERE easydump.t3.id <=> OLD.id;
+2020-07-22 17:34:25 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.updTriggerUpd(TriggerSQL.java:76) ]
+INFO:CREATE TRIGGER tg_kkk_t2_upd AFTER UPDATE ON kkk.t2 FOR EACH ROW UPDATE easydump.t3 SET easydump.t3.id=NEW.id,easydump.t3.name=concat(NEW.name,NEW.money),easydump.t3.money=NEW.money,easydump.t3.date_time=NEW.date_time,easydump.t3.date=NEW.date,easydump.t3.date_notime=NEW.date_notime,easydump.t3.date_flag=NEW.date_flag WHERE 
+2020-07-22 17:34:25 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.insTrigger(TriggerSQL.java:183) ]
+INFO:CREATE TRIGGER tg_kkk_t2_ins AFTER INSERT ON kkk.t2 FOR EACH ROW REPLACE INTO easydump.t3(id,name,money,date_time,date,date_notime,date_flag) VALUES (NEW.id,concat(NEW.name,NEW.money),NEW.money,NEW.date_time,NEW.date,NEW.date_notime,NEW.date_flag);
+2020-07-22 17:35:52 下午 [Thread: main][ Method: com.dataant.controller.TriggerSQL.delTrigger(TriggerSQL.java:31) ]
+INFO:CREATE TRIGGER tg_kkk_t2_del AFTER DELETE ON kkk.t2 FOR EACH ROW DELETE IGNORE FROM easydump.t3 WHERE easydump.t3.id <=> OLD.id;

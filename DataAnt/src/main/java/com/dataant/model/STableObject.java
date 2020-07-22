@@ -13,7 +13,7 @@ public class STableObject {
     private String sDB;
     private String sTable;
     private String sCols;
-    
+    private String sCustomedKey;
     public STableObject(){}
     public STableObject(String sDB,String sTable,String sCols){
         this.sDB=sDB;
@@ -30,6 +30,9 @@ public class STableObject {
     public void setSTable(String sTable){
         this.sTable=sTable;
     }
+    public void setSCustomedKey(String customedKey){
+        this.sCustomedKey=customedKey;
+    }
     public String getSDB(){
         return this.sDB;
     }
@@ -38,5 +41,8 @@ public class STableObject {
     }
     public String getSTable(){
         return this.sTable;
+    }
+    public String getSCustomedKey(){
+        return this.sCustomedKey;
     }
 }
