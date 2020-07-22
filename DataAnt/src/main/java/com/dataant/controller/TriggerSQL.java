@@ -128,12 +128,7 @@ public class TriggerSQL {
         for(String col:collist){
             int beginidx=0;
             while(sb.indexOf(col,beginidx)>=0){
-                /*
-                if(col.equals("date_flag")){
-                    System.out.println(sb.indexOf(col,beginidx));
-                    System.out.println(sb.length());
-                    System.out.println("xxx");
-                }*/
+
                 beginidx=sb.indexOf(col,beginidx);
                 //System.out.println(str.indexOf(",", beginidx));
                 if(sb.indexOf(",", beginidx)==beginidx+col.length()||
