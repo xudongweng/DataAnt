@@ -25,13 +25,15 @@ public class GenerateTriggerInfo {
             
             List<String> collist=lcc.getDBTriggerCol();//获取数据源所有列名
             TriggerSQL tgSQL=new TriggerSQL();
-            tgSQL.delTrigger();
+            tgSQL.insTrigger(collist);
             if(lcc.setCustomedKey()==0){
                 tgSQL.updTriggerIns(collist);
-            }else
+                tgSQL.delTrigger();
+            }else{
                 tgSQL.updTriggerUpd(collist);
-            tgSQL.insTrigger(collist);
-
+                tgSQL.delTrigger(collist);
+            }
+            
         }catch(Exception e){
             log.error(e.toString());
         }

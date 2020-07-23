@@ -32,6 +32,29 @@ public class TriggerSQL {
         sbTriggerSQL.delete(0, sbTriggerSQL.length());
     }
 
+     public void delTrigger(List<String> collist){
+        sbTriggerSQL.append("CREATE TRIGGER tg_").append(LoadTableProperity.getST().getSDB())
+                .append("_").append(LoadTableProperity.getST().getSTable()).append("_del AFTER DELETE ON ")
+                .append(LoadTableProperity.getST().getSDB()).append(".").append(LoadTableProperity.getST().getSTable())
+                .append(" FOR EACH ROW DELETE IGNORE FROM ").append(LoadTableProperity.getDT().getDDB()).append(".").append(LoadTableProperity.getDT().getDTable())
+                .append(" WHERE ");//.append(LoadTableProperity.getDT().getDDB()).append(".").append(LoadTableProperity.getDT().getDTable()).append(".").append(LoadTableProperity.getPK())
+                //.append(" <=> OLD.").append(LoadTableProperity.getPK()).append(";");
+        
+        //对where部分类进行拆分再组合
+        String strWhere=this.setNewCols(LoadTableProperity.getST().getSCustomedKey(), collist,false);
+        List<String> dcusColsList=Arrays.asList(LoadTableProperity.getDT().getDCustomedKey().split(","));
+        List<String> scusColsList=this.getColList(strWhere);
+        
+        for(int idxlist=0;idxlist<dcusColsList.size();idxlist++){
+            sbTriggerSQL.append(LoadTableProperity.getDT().getDDB()).append(".").
+                    append(LoadTableProperity.getDT().getDTable()).append(".").append(dcusColsList.get(idxlist)).append("<=>").append(scusColsList.get(idxlist));
+            if(idxlist!=dcusColsList.size()-1) sbTriggerSQL.append(" AND ");
+        }
+        //System.out.println(sbTriggerSQL.toString());
+        log.info(sbTriggerSQL.toString());
+        sbTriggerSQL.delete(0, sbTriggerSQL.length());
+    }
+     
     public void updTriggerIns(List<String> collist){
         sbTriggerSQL.append("CREATE TRIGGER tg_").append(LoadTableProperity.getST().getSDB())
                 .append("_").append(LoadTableProperity.getST().getSTable()).append("_upd AFTER UPDATE ON ")
@@ -39,7 +62,7 @@ public class TriggerSQL {
                 .append(" FOR EACH ROW REPLACE INTO ").append(LoadTableProperity.getDT().getDDB()).append(".").append(LoadTableProperity.getDT().getDTable()).append("(")
                 .append(LoadTableProperity.getDT().getDCols()).append(") VALUES (");
         
-        sbTriggerSQL.append(this.setNewUpdateCol(LoadTableProperity.getST().getSCols(), collist)).append(");");
+        sbTriggerSQL.append(this.setNewCols(LoadTableProperity.getST().getSCols(), collist,true)).append(");");
         //System.out.println(sbTriggerSQL.toString());
         log.info(sbTriggerSQL.toString());
         sbTriggerSQL.delete(0, sbTriggerSQL.length());
@@ -51,7 +74,7 @@ public class TriggerSQL {
                 .append(LoadTableProperity.getST().getSDB()).append(".").append(LoadTableProperity.getST().getSTable())
                 .append(" FOR EACH ROW UPDATE ").append(LoadTableProperity.getDT().getDDB()).append(".").append(LoadTableProperity.getDT().getDTable()).append(" SET ");
         //对set部分类进行拆分再组合
-        String strSet=this.setNewUpdateCol(LoadTableProperity.getST().getSCols(), collist);
+        String strSet=this.setNewCols(LoadTableProperity.getST().getSCols(), collist,true);
         List<String> dcolslist=Arrays.asList(LoadTableProperity.getDT().getDCols().split(","));
         List<String> scolslist=this.getColList(strSet);
         //System.out.println(dcolslist);
@@ -67,12 +90,19 @@ public class TriggerSQL {
             else
                 sbTriggerSQL.append(" WHERE ");
         }
-         //对where部分类进行拆分再组合
+        //对where部分类进行拆分再组合
+        String strWhere=this.setNewCols(LoadTableProperity.getST().getSCustomedKey(), collist,false);
         List<String> dcusColsList=Arrays.asList(LoadTableProperity.getDT().getDCustomedKey().split(","));
-        List<String> scusColsList=this.getColList(LoadTableProperity.getST().getSCustomedKey());
+        List<String> scusColsList=this.getColList(strWhere);
         
-        System.out.println(dcusColsList);
-        System.out.println(scusColsList);
+        //System.out.println(dcusColsList);
+        //System.out.println(scusColsList);
+        for(int idxlist=0;idxlist<dcusColsList.size();idxlist++){
+            sbTriggerSQL.append(LoadTableProperity.getDT().getDDB()).append(".").
+                    append(LoadTableProperity.getDT().getDTable()).append(".").append(dcusColsList.get(idxlist)).append("<=>").append(scusColsList.get(idxlist));
+            if(idxlist!=dcusColsList.size()-1) sbTriggerSQL.append(" AND ");
+        }
+        
         log.info(sbTriggerSQL.toString());
         sbTriggerSQL.delete(0, sbTriggerSQL.length());
     }
@@ -88,7 +118,7 @@ public class TriggerSQL {
             int idx=0;
             int i=cols.indexOf(",");
             int j=cols.indexOf("(");
-            while(i>0){
+            while(true){
                 while((i<j||j==-1)&&i>-1){
                     //System.out.println(strSet.substring(idx,i));
                     scolslist.add(cols.substring(idx,i));
@@ -121,7 +151,7 @@ public class TriggerSQL {
     }
     
     //匹配更新部分列字段更新为NEW.的列字段
-    private String setNewUpdateCol(String strCols,List<String> collist){
+    private String setNewCols(String strCols,List<String> collist,boolean flag){
         StringBuilder sb=new StringBuilder();
         sb.append(strCols);
         //匹配SET部分列字段更新为NEW.的列字段
@@ -140,7 +170,10 @@ public class TriggerSQL {
                         sb.indexOf("+", beginidx)==beginidx+col.length()||
                         sb.indexOf("-", beginidx)==beginidx+col.length()){
                     //str=str.replaceFirst(col, "NEW."+col);
-                    sb.replace(beginidx,beginidx+col.length(), "NEW."+col);
+                    if(flag)
+                        sb.replace(beginidx,beginidx+col.length(), "NEW."+col);
+                    else
+                        sb.replace(beginidx,beginidx+col.length(), "OLD."+col);
                     //System.out.println(sb.toString());
                     //sbTmp.append(sb.substring(beginidx, beginidx+col.length()).replace(col, "NEW."+col));
                     //System.out.println(sb.toString());
@@ -173,7 +206,7 @@ public class TriggerSQL {
                 .append(LoadTableProperity.getST().getSDB()).append(".").append(LoadTableProperity.getST().getSTable())
                 .append(" FOR EACH ROW REPLACE INTO ").append(LoadTableProperity.getDT().getDDB()).append(".").append(LoadTableProperity.getDT().getDTable()).append("(")
                 .append(LoadTableProperity.getDT().getDCols()).append(") VALUES (");
-        sbTriggerSQL.append(this.setNewUpdateCol(LoadTableProperity.getST().getSCols(), collist)).append(");");
+        sbTriggerSQL.append(this.setNewCols(LoadTableProperity.getST().getSCols(), collist,true)).append(");");
         //System.out.println(sbTriggerSQL.toString());
         log.info(sbTriggerSQL.toString());
         sbTriggerSQL.delete(0, sbTriggerSQL.length());
